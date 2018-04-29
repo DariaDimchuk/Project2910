@@ -18,6 +18,13 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	
 	<script>
+	
+	/*	BUTTONS FUNCTIONALITY	*/
+	
+	
+	/*	Food Skincare and Tips buttons functionality - when clicked reveal
+		content, when clicked again - hide that content		*/
+	
 		$(document).ready(function(){
 			$("#food-button").click(function(){
 				$("#food-recipes").toggle('450', "swing", function(){
@@ -48,6 +55,48 @@
 		
 		});
 	
+	
+	/*	SEARCH FUNCTIONALITY	*/
+	
+	
+	
+	/*	Store search value in variable	*/
+	
+	function getSearchValue() {
+		var searchInput = document.getElementById("searchbar").value;
+		
+		return searchInput;
+	}
+	
+	
+	/*	Trigger search when enter is hit	*/
+	
+		//must be made onload - otherwise "searchbar" returns null value
+		window.onload=function(){
+			//get value that is being searched
+			var input = document.getElementById("searchbar");
+			
+			//if ENTER is hit on input field, the button is clicked
+			input.addEventListener("keyup", function(event){
+				event.preventDefault();
+				if(event.keyCode === 13){
+					document.getElementById("search-button").click();
+				}
+			});
+		}
+		
+		
+		
+	/*	Search button method	*/
+	
+		//load search results website on button click
+		function search(){
+			
+			//onclick=window.location.href = './page_2.html';
+			onclick=window.location.href = './page_2.html?query=' + getSearchValue();;
+		}
+		
+	
 	</script>
 	
 	
@@ -74,7 +123,7 @@
 			<div id="search-section">
 				<input type="text" id="searchbar" placeholder="Search food ...">
 				
-				<button type="button" id="search-button">
+				<button onclick="search()" type="button" id="search-button">
 				
 					<img src="./website_images/search-icon.png" class="search-button-image">
 				
