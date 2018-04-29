@@ -1,0 +1,86 @@
+
+html, body{
+	margin: 0;
+	letter-spacing: 1px;
+	font-size: 20px;
+	font-family: 'Quicksand', Arial,sans-serif;
+}
+
+.content{
+	min-height: 40%;
+	text-align: center;
+	font-family:'Quicksand', Arial,sans-serif;
+	font-size: 15px;
+}
+
+
+.title{
+	left: 0;
+	right: 0;
+	top: 10%;
+	bottom: 0;
+	text-align: center;
+}
+
+.title h1{
+	margin: 15px 0 15px 0;
+	color: #565656;
+	font-weight: 100;
+}
+
+
+/*	Top mini menu - about, how, why	*/
+
+
+#menu{
+	display: block;
+	width: 100%;
+	left: 0px;
+	min-height: 20%;
+	text-align: center;
+}
+
+#menu a{
+	margin: 0 5px 0 5px;
+	font-size: 15px;
+	text-decoration: none;
+	font-family: 'Quicksand', Arial,sans-serif;
+	letter-spacing: 1px;
+	-webkit-user-drag: none;
+}
+
+#menu a:hover{
+	border-radius: 10px;
+	border-color: transparent;
+}
+
+
+/*	Search Bar section styling	*/
+
+
+input:focus{
+	outline:none;
+}
+
+#searchbar{
+	font-family: 'Quicksand', sans-serif;
+	width: 60%;
+	border-radius: 10px;
+	padding: 10px 5px;
+	border: 1px solid #00000073;
+}
+
+
+#search-button{
+	background: transparent;
+	border: none;
+	width: 20px;
+	margin: 0 0 -2px -3px;
+	
+}
+
+#search-button img{
+	max-width: 18px;
+	margin: 0 0 -2px -3px;
+	-webkit-user-drag: none;
+}

@@ -1,0 +1,119 @@
+@media screen and (max-width: 700px) {
+		.title{
+			max-height: 200px;
+		}
+}
+
+@media screen and (min-width: 701px) {
+	.title{
+		max-height: 250px;
+	}
+	
+}
+
+
+.parallax{
+	position: relative;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+	transform: translateZ(0);
+	opacity: 0.8;
+	-webkit-user-drag: none;
+}
+
+
+.parallax_1{
+	min-height: 100%;
+	background-image: url('../website_images/food1.jpg');
+}
+
+.parallax_2{
+	min-height: 50%;
+	background-image: url('../website_images/food2.jpg');
+	
+}
+
+
+.parallax_3{
+	min-height: 50%;
+	background-image: url('../website_images/food3.jpg');
+	
+}
+
+
+
+html, body, .wrapper{
+	height: 100%;
+	min-height: 100%;
+}
+
+
+.content{
+	background-color: #f6f6f6;
+	position: relative;
+	padding-bottom: 5px;	
+}
+
+
+.content.text{
+	padding: 5% 15% 5% 15%;	
+	
+}
+
+.content h2{
+	background: #f1dd7f;
+	margin: 0;
+	padding: 20px;
+	margin-bottom: -27px;
+}
+
+.content p{
+	margin: 5%;
+}
+
+
+.title{
+	position: absolute;
+	margin: auto;
+	background: #ffffffc2;
+	
+}
+
+
+#menu{
+	background: transparent;
+	
+}
+
+#menu a{
+	padding: 8px 10px 8px 10px;
+	color: black;
+	
+}
+
+
+#menu a:hover{
+	background-color: #ffffffcf;
+	transition: background-color 0.8s;
+	
+}
+
+
+#searchbar{
+	margin: 3% 0 5% 0;
+	
+}
+
+
+
+
+
+
+
+
+
+
+

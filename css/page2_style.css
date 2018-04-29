@@ -1,0 +1,109 @@
+@media screen and (max-width: 800px) {
+	html {
+		background: url('../website_images/food2.jpg');
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-color: #f6f6f6;
+	}
+}
+
+@media screen and (min-width: 801px) {
+	html {
+		background: url('../website_images/food2.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-color: #f6f6f6;
+	}
+}
+
+
+
+.wrapper{
+	background-color: #f6f6f6;
+}
+
+.content{
+	background-color: transparent;
+	padding: 5% 15% 5% 15%;
+}
+
+
+.title{
+	max-height: 200px;
+	padding-top: 2%;
+	margin-top: 22%;
+	background-color: transparent;
+}
+
+#menu{
+	background-color: #98253b;
+	padding-bottom: 5px;
+}
+
+
+#menu a{
+	padding: 4px 12px 6px 12px;
+	color: white;
+}
+
+#menu a:hover{
+	color: black;
+	background-color: #ffffffcf;
+	transition: background-color 0.8s, color 0.4s;
+}
+
+
+#searchbar{
+	margin: 5% 0 5% 0;
+}
+
+#search-section{
+	margin-left: 5%;
+}
+
+/*	Content style - buttons and recipes below them	*/
+	
+.recipes{
+	/* loads hidden - when clicked, content shows */
+	display: none;	
+}
+
+
+#food-button:focus, #health-button:focus , #tips-button:focus{
+	outline:none;
+}
+
+#food-button, #health-button , #tips-button{	
+	min-width: 200px;
+	padding: 18px;
+	margin: 10px;
+	background: #f1dd7f;
+	border: 1px solid transparent;
+	border-radius: 10px;
+	font-family: 'Quicksand', sans-serif;
+	
+}
+
+.recipes{
+	padding: 10px;
+}
+
+.recipes a{
+	font-family: 'Quicksand', sans-serif;
+	font-size: 13px;
+	text-decoration: none;
+	padding: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

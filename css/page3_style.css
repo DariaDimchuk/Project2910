@@ -1,0 +1,79 @@
+/*	Basic Styling	*/
+
+@media screen and (max-width: 800px) {
+	html {
+		background: url('../website_images/food3.jpg');
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-color: #f6f6f6;
+	}
+}
+
+@media screen and (min-width: 801px) {
+	html {
+		background: url('../website_images/food3.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-color: #f6f6f6;
+	}
+}
+
+.wrapper{
+	background-color: #f6f6f6;
+}
+
+.content{
+	background-color: transparent;
+	padding: 5% 15% 5% 15%;
+}
+
+
+
+.title{
+	max-height: 200px;
+	margin-top: 22%;
+	padding-top: 2%;
+	background-color: transparent;
+}
+
+/*	Top mini menu - about, how, why	*/
+
+#menu{
+	background-color: #98253b;
+	padding-bottom: 5px;
+}
+
+#menu a{
+	padding: 4px 12px 6px 12px;
+	color: white;
+}
+
+#menu a:hover{
+	color: black;
+	background-color: #ffffffcf;
+	transition: background-color 0.8s, color 0.4s;
+}
+
+
+/*	Search Bar section styling	*/
+
+#searchbar{
+	margin: 5% 0 5% 0;
+	
+}
+
+#search-section{
+	margin-left: 5%;
+}
+
+
+/*	Content style - recipes */
+
+.recipe{
+	text-align: left;
+}
+
+.recipe h1, h2 {
+	color: #565656;
+	font-weight: 100;
+}
