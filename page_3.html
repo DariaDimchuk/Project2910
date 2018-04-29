@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Save Your Food</title>
+	<meta charset = "utf-8">
+	
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+		
+	<link rel="stylesheet" type="text/css" href="">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+	<style>
+	
+	
+	
+	@media screen and (max-width: 800px) {
+		html {
+			background: url('./website_images/food2.jpg');
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+	}
+	
+	@media screen and (min-width: 801px) {
+		html {
+			background: url('./website_images/food2.jpg');
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-color: white;
+		}
+	}
+	
+	
+	html, body, .wrapper{
+		height: 100%;
+		min-height: 100%;
+		margin: 0;
+		
+		letter-spacing: 1px;
+		font-size: 20px;
+		font-family: 'Quicksand', Arial,sans-serif;
+	}
+	
+	
+	.content{
+		background-color: #f6f6f6;
+		padding: 5% 15% 5% 15%;
+		min-height: 40%;
+		text-align: center;
+		font-family: 'Quicksand', Arial,sans-serif;
+		font-size: 15px;
+	}
+	
+	
+	.title{
+		max-height: 200px;
+		left: 0;
+		right: 0;
+		margin-top: 22%;
+		top: 10%;
+		padding-top: 2%;
+		bottom: 0;
+		background: #f6f6f6;
+		text-align: center;
+	}
+	
+	.title h1{
+		margin: 15px 0 15px 0;
+		color: #565656;
+		font-weight: 100;
+	
+	}
+	
+	#searchbar{
+		font-family: 'Quicksand', sans-serif;
+		width: 60%;
+		margin: 5% 0 5% 0;
+		border-radius: 10px;
+		padding: 10px 5px;
+		border: 1px solid #00000073;
+		
+	}
+	
+	input:focus{
+		outline:none;
+	}
+	
+	button:focus{
+		outline:none;
+	}
+	
+	#food-button, #health-button , #tips-button{	
+		min-width: 200px;
+		padding: 18px;
+		margin: 10px;
+		background: #f1dd7f;
+		border: 1px solid transparent;
+		border-radius: 10px;
+		font-family: 'Quicksand', sans-serif;
+		
+	}
+	
+	
+	#search-button{
+		background: transparent;
+		border: none;
+		width: 20px;
+		margin-left: -5px;
+		
+	}
+	
+	#search-button img{
+		max-width: 18px;
+	}
+	
+	
+	#menu{
+		display: block;
+		width: 100%;
+		left: 0px;
+		min-height: 20%;
+		text-align: center;
+		background-color: #98253b;
+		padding-bottom: 5px;
+	}
+	
+	#menu a{
+		padding: 4px 12px 6px 12px;
+		margin: 0 5px 0 5px;
+		color: white;
+		font-size: 15px;
+		text-decoration: none;
+		font-family: 'Quicksand', Arial,sans-serif;
+		letter-spacing: 1px;
+	}
+	
+	#menu a:hover{
+		color: black;
+		background-color: #ffffffcf;
+		transition: background-color 0.8s, color 0.4s;
+		border-radius: 10px;
+		border-color: transparent;
+	}
+	
+	.recipes p{
+		font-size: 13px;
+	}
+	
+	#search-section{
+		margin-left: 5%;
+	}
+	
+	</style>
+	
+	
+</head>
+	
+	
+<body>
+	<div class="top-bar">
+		<nav id="menu">
+			<a href=#about>about</a>
+			<a href=#why>why</a>
+			<a href=#how>how</a>
+		</nav>
+	</div>
+	
+	
+	<div class="wrapper">
+		
+		<div class = "title">
+			<h1>Save Your Food!</h1>
+			
+			
+			<div id="search-section">
+				<input type="text" id="searchbar" placeholder="Search food ...">
+				
+				<button type="button" id="search-button">
+				
+					<img src="./website_images/search-icon.png" class="search-button-image">
+				
+				</button>
+				
+			
+			</div>
+			
+		</div>
+		
+		
+		<div class="content">
+			<div class="food">
+				<button type="button" id="food-button">
+					Food Recipes
+				</button>
+				<div class="recipes">
+					<p> Banana Bread</p>
+						
+				</div>
+			</div>
+		
+			<div class="health">
+				<button type="button" id="health-button">
+					Skincare Recipes
+				</button>
+				
+				<div class="recipes">
+					<p> Face Mask 2</p>
+					<hr>
+					<p> Coconut Butter</p>
+				</div>
+			</div>
+		
+			<div class="tips">
+				<button type="button" id="tips-button">
+					Tips for Bananas
+				</button>
+				
+				<div class="recipes">
+					<p> How to keep bananas fresh</p>
+				</div>
+				
+			</div>
+			
+			
+		</div>
+		
+		
+	</div>
+	
+	
+</body>
+</html>
+

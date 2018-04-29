@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Save Your Food</title>
+	<meta charset = "utf-8">
+	
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+		
+	<link rel="stylesheet" type="text/css" href="">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+	
+	
+	<script>
+		//must be made onload - otherwise "searchbar" returns null value
+		window.onload=function(){
+			//get value that is being searched
+			var input = document.getElementById("searchbar");
+			
+			//if ENTER is hit on input field, the button is clicked
+			input.addEventListener("keyup", function(event){
+				event.preventDefault();
+				if(event.keyCode === 13){
+					document.getElementById("search-button").click();
+				}
+			});
+		}
+		
+		
+		//load search results website on button click
+		function search(){
+			onclick=window.location.href = './page_2.html';
+		}
+		
+		
+	</script>
+	
+	
+	<style>
+	
+	html, body, .wrapper{
+		height: 100%;
+		min-height: 100%;
+		margin: 0;
+		
+		letter-spacing: 1px;
+		font-size: 20px;
+		font-family: 'Quicksand', Arial,sans-serif;
+	}
+	
+	.parallax{
+		position: relative;
+		background-attachment: fixed;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		
+		transform: translateZ(0);
+		opacity: 0.8;
+		-webkit-user-drag: none;
+	}
+	
+	
+	.parallax_1{
+		min-height: 100%;
+		background-image: url('./website_images/food1.jpg');
+	}
+	
+	.parallax_2{
+		min-height: 50%;
+		background-image: url('./website_images/food2.jpg');
+		
+	}
+	
+	
+	.parallax_3{
+		min-height: 50%;
+		background-image: url('./website_images/food3.jpg');
+		
+	}
+	
+	.title{
+		position: absolute;
+		left: 0;
+		right: 0;
+		margin: auto;
+		top: 10%;
+		bottom: 0;
+		
+		background: #ffffffc2;
+		text-align: center;
+	}
+	.title h1{
+		margin: 15px 0 15px 0;
+		color: #565656;
+		font-weight: 100;
+	}
+	
+	
+	@media screen and (max-width: 700px) {
+		.title{
+			max-height: 200px;
+		}
+	}
+	
+	@media screen and (min-width: 701px) {
+		.title{
+			max-height: 250px;
+		}
+		
+	}
+	
+	
+	#menu{
+		display: block;
+		background: transparent;
+		width: 100%;
+		left: 0px;
+		min-height: 20%;
+		text-align: center;
+		
+		
+		--position: absolute;
+	}
+	
+	#menu a{
+		padding: 8px 10px 8px 10px;
+		margin: 0 5px 0 5px;
+		color: black;
+		font-size: 15px;
+		text-decoration: none;
+		font-family: 'Quicksand', Arial,sans-serif;
+		letter-spacing: 1px;
+		
+		-webkit-user-drag: none;
+	}
+	
+	#menu a:hover{
+		background-color: #ffffffcf;
+		transition: background-color 0.8s;
+		border-radius: 10px;
+		border-color: transparent;
+	}
+	
+	
+	#searchbar{
+		font-family: 'Quicksand', sans-serif;
+		width: 60%;
+		margin: 3% 0 5% 0;
+		border-radius: 10px;
+		padding: 10px 5px;
+		border: 1px solid #00000073;
+	}
+	
+	input:focus{
+		outline:none;
+	}
+	
+	
+	#search-button{
+		background: transparent;
+		border: none;
+		width: 20px;
+		margin: 0 0 -2px -3px;
+		
+	}
+	
+	#search-button img{
+		max-width: 18px;
+		margin: 0 0 -2px -3px;
+		-webkit-user-drag: none;
+	}
+	
+	
+	
+	.content{
+		background-color: #f6f6f6;
+		min-height: 40%;
+		text-align: center;
+		position: relative;
+		font-family:'Quicksand', Arial,sans-serif;
+		font-size: 15px;
+		padding-bottom: 5px;
+	}
+	
+	
+	.content.text{
+		padding: 5% 15% 5% 15%;	
+		
+	}
+	
+	.content h2{
+		background: #f1dd7f;
+		margin: 0;
+		padding: 20px;
+		margin-bottom: -27px;
+	}
+	
+	.content p{
+		margin: 5%;
+	}
+	
+	
+	</style>
+	
+	
+</head>
+	
+	
+<body>
+	
+	<div class="wrapper">
+		
+		<div class="parallax parallax_1"></div>
+		
+		<div class = "title">
+			<h1>Save Your Food!</h1>
+			
+			<nav id="menu">
+				<a href=#about>About Us</a>
+				<a href=#why>Why?</a>
+				<a href=#how>How?</a>
+			</nav>
+			
+			<div id="search-section">
+				<input type="text" id="searchbar" placeholder="Search food ...">
+				
+				<button onclick="search()" type="button" id="search-button">
+				
+					<img src="./website_images/search-icon.png" class="search-button-image">
+				
+				</button>
+			</div>
+		</div>
+		
+		<div class="content">
+				
+			<h2 id="about">About Us</h2>
+			<div class="text">
+				<br><br>
+				
+				<p>We're a team of beginner developers looking to create software that improves the world. <br><br><br> We've created a mobile website that shows you how to keep your produce fresh longer, keep your food waste low, and reuse your not-so-fresh produce!</p>
+				<br><br>
+			</div>
+				
+		</div>
+		
+		
+		<div class="parallax parallax_2"></div>
+		
+		
+		<div class="content">
+		
+			<h2 id="why">Why did we make this?</h2>
+				
+			<div class="text">
+				
+				<br><br>
+				
+				<p>Food waste has become a huge problem in every household.</p>
+				
+				<p>Although composting your food scraps is helpful, it's still just above a landfill! There are many ways you can improve your habits to reduce food waste, reuse older vegetables and fruits, and keep your produce fresh longer.</p>
+				<p>
+				This website will help inform you of all you can do.
+				Look up recipes to use up older fruits or ways to make health products out of them. Search through tips on how to reduce your fotprint, keep those veggies last longer, and buy just enough for your family - so nothing gets thrown out.
+				</p>
+				
+				<p>Give us a try! Search for a fresh food item you have that's going bad soon, and see all you can do with it.</p>
+				
+			</div>
+		</div>
+		
+		
+		<div class="parallax parallax_3"></div>
+		
+		
+		<div class="content">
+				
+				<h2 id="how">How do you use this?</h2>
+				
+			<div class="text">
+			
+				<br><br>
+				
+				<p>We streamlined our website to make it as easy as possible to reduce food waste.</p>
+				
+				<p>Simply type in what type of food you have that is going bad and search. We provide hundreds of recipes, tips, and ideas for using up this food instead of throwing it in the bin. <br><br>Unlike other websites, we give you everything - from food recipes, to health product recipes, to tips and facts. Feel free to filter your search results to see only what you want to see. </p>
+				
+			</div>
+				
+		</div>
+		
+		
+		<div class="parallax parallax_1" style="min-height: 300px;"></div>
+		
+			
+	</div>
+	
+	<footer>
+		
+	</footer>
+
+	
+</body>
+</html>
+
