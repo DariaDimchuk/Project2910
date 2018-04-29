@@ -19,7 +19,9 @@
 	<script>
 		$(document).ready(function(){
 			$("#food-button").click(function(){
-				$("#food-recipes").toggle();
+				$("#food-recipes").toggle('450', "swing", function(){
+					//Animation done.
+				});
 			});
 		
 		});
@@ -28,7 +30,9 @@
 		
 		$(document).ready(function(){
 			$("#health-button").click(function(){
-				$("#health-recipes").toggle();
+				$("#health-recipes").toggle('450', "swing", function(){
+					//Animation done.
+				});
 			});
 		
 		});
@@ -36,7 +40,9 @@
 		
 		$(document).ready(function(){
 			$("#tips-button").click(function(){
-				$("#tips-recipes").toggle();
+				$("#tips-recipes").toggle('450', "swing", function(){
+					//Animation done.
+				});
 			});
 		
 		});
