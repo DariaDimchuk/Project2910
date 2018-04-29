@@ -16,6 +16,21 @@
 	
 	
 	<script>
+	
+	/*	SEARCH FUNCTIONALITY	*/
+	
+	
+	/*	Store search value in variable	*/
+	
+	function getSearchValue() {
+		var searchInput = document.getElementById("searchbar").value;
+		
+		return searchInput;
+	}
+	
+	
+	/*	Trigger search when enter is hit	*/
+	
 		//must be made onload - otherwise "searchbar" returns null value
 		window.onload=function(){
 			//get value that is being searched
@@ -31,11 +46,15 @@
 		}
 		
 		
+		
+	/*	Search button functionality	*/
+	
 		//load search results website on button click
 		function search(){
-			onclick=window.location.href = './page_2.html';
+			
+			//onclick=window.location.href = './page_2.html';
+			onclick=window.location.href = './page_2.html?query=' + getSearchValue();;
 		}
-		
 		
 	</script>
 	
