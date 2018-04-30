@@ -25,6 +25,9 @@
 .content{
 	background-color: transparent;
 	padding: 5% 15% 5% 15%;
+	
+	/* loads hidden - when clicked, content shows */
+	display: none;
 }
 
 
@@ -63,11 +66,15 @@
 
 /*	Content style - buttons and recipes below them	*/
 	
-.recipes{
-	/* loads hidden - when clicked, content shows */
-	display: none;	
-}
 
+#search-result-show{
+	text-align: center;
+	margin: 1%;
+	color: #565656;
+    font-weight: 100;
+	font-size: 5vw;
+	padding: 10px;
+}
 
 #food-button:focus, #health-button:focus , #tips-button:focus{
 	outline:none;
@@ -85,6 +92,8 @@
 }
 
 .recipes{
+	/* loads hidden - when clicked, content shows */
+	display: none;
 	padding: 10px;
 }
 
@@ -94,16 +103,4 @@
 	text-decoration: none;
 	padding: 5px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
