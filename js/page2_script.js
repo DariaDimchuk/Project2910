@@ -53,19 +53,61 @@
 			}
 		});
 		
-		
 		/*
-			Dynamic Search - on load replaces results with query content
+			Result not found functionality
+			
+				hides content and 
+			
+			
+			* * * * * * * * * * * * * * * * * * * * * * * * 
+			
+				CHANGE HERE WHEN DB AVAILABLE
+				
+				
+				query === banana
+				
+				Here implement database check to see if query matches ANY database recipes/keywords
+			
+			* * * * * * * * * * * * * * * * * * * * * * * * 
 		*/
 		
-		document.getElementById("food-result-1").textContent=toTitleCase(getURLsearchValue("query")) + " Bread";	
-	
-		document.getElementById("health-result-1").textContent=toTitleCase(getURLsearchValue("query")) + " Face Mask";	
+		if(toLowerCase(getURLsearchValue("query")) === "banana" 
+		   || toLowerCase(getURLsearchValue("query")) === "apple" 
+		   || toLowerCase(getURLsearchValue("query")) === "orange"){
+			
+			$(document).ready(function() {
+				$('.content').show();
+			});
+			
+			
+			document.getElementById("search-result-show").textContent= "Search: " + toTitleCase(getURLsearchValue("query"));
+			
+			
+			/*
+			Dynamic Search - on load replaces results with query content
+			*/
+			
+			document.getElementById("food-result-1").textContent=toTitleCase(getURLsearchValue("query")) + " Bread";	
+		
+			document.getElementById("health-result-1").textContent=toTitleCase(getURLsearchValue("query")) + " Face Mask";	
+			
+			
+			document.getElementById("health-result-2").textContent=toTitleCase(getURLsearchValue("query")) + " Butter";	
+			
+			document.getElementById("tips-result-1").textContent="How to keep your " + toLowerCase(getURLsearchValue("query")) + " fresh";
+		}
+		else{
+			document.getElementById("search-result-show").textContent= "Nothing found. Try something else!";
+			
+			document.getElementsByClassName("content");
+			
+			
+			$(document).ready(function() {
+				$('.content').hide();
+			});
+		}
 		
 		
-		document.getElementById("health-result-2").textContent=toTitleCase(getURLsearchValue("query")) + " Butter";	
-		
-		document.getElementById("tips-result-1").textContent="How to keep your " + toLowerCase(getURLsearchValue("query")) + " fresh";
 	
 	}//end window.onload
 	
