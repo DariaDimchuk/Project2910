@@ -32,7 +32,7 @@
 		</nav>
 	</div>
 	
-	
+	<div id="banner_image"></div>
 	<div class="wrapper">
 		
 		<div class = "title">
@@ -40,13 +40,22 @@
 			
 			
 			<div id="search-section">
-				<input type="text" id="searchbar" placeholder="Search food ...">
+				<input type="text" id="searchbar" onkeyup="autocompleteMenuList()" placeholder="Search food ...">
 				
 				<button onclick="search()" type="button" id="search-button">
 				
 					<img src="./website_images/search-icon.png" class="search-button-image">
 				
 				</button>
+				
+				<div id="search-suggestions-container">
+					<ul id="search-suggestions">
+						<li><a href="#" onclick="selectSearchItem(this)">banana</a></li>
+						<li><a href="#" onclick="selectSearchItem(this)">apple</a></li>
+						<li><a href="#" onclick="selectSearchItem(this)">orange</a></li>
+					</ul>
+				</div>
+				
 				
 			
 			</div>
@@ -73,7 +82,6 @@
 			<div class="health">
 				<button type="button" id="health-button">
 					Skincare Recipes
-					
 					<img src="./website_images/expand.png" class="expand-image" align= "right">
 				</button>
 				
@@ -87,8 +95,7 @@
 			<div class="tips">
 				<button type="button" id="tips-button">
 					Tips
-					
-					<img src="./website_images/expand.png" class="expand-image" align= "right">
+					<img src="./website_images/expand.png" class="expand-image" align= "right";>
 				</button>
 				
 				<div class="recipes" id="tips-recipes">
