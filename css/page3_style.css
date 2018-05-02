@@ -1,22 +1,27 @@
 /*	Basic Styling	*/
 
-@media screen and (max-width: 800px) {
-	html {
-		background: url('../website_images/food3.jpg');
-		background-repeat: no-repeat;
-		background-size: contain;
-		background-color: #f6f6f6;
+/*	Basic Styling	*/
+@media screen and (min-width: 600px) {
+	#banner_image {
+		padding: 10%!important;
 	}
 }
 
-@media screen and (min-width: 801px) {
-	html {
-		background: url('../website_images/food3.jpg');
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-color: #f6f6f6;
-	}
+html{
+	background-color: #f6f6f6;
 }
+
+
+#banner_image{
+	background: url(../website_images/food2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 14%;
+    min-height: 20%;
+	opacity: 0.8;
+}
+
+
 
 .wrapper{
 	background-color: #f6f6f6;
@@ -30,10 +35,10 @@
 
 
 .title{
-	max-height: 200px;
-	margin-top: 22%;
-	padding-top: 2%;
-	background-color: transparent;
+	max-height: 240px;
+    padding-top: 5%;
+    font-size: 3vw;
+    background-color: transparent;
 }
 
 /*	Top mini menu - about, how, why	*/
