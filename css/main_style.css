@@ -64,6 +64,7 @@ input:focus{
 
 #searchbar{
 	font-family: 'Quicksand', sans-serif;
+	font-size: 3.5vw;
 	width: 60%;
 	border-radius: 10px;
 	padding: 10px 5px;
@@ -99,7 +100,7 @@ input:focus{
     background-color: white;
     padding: 12px;
     text-decoration: none;
-    font-size: 10px;
+    font-size: 3.5vw;
     color: black;
     display: block;
 	width: 60%;
