@@ -29,8 +29,6 @@
 		});
 	});
 
-
-	
 /*	WINDOW ONLOAD FUNCTIONALITY	*/
 	
 	window.onload=function(){
@@ -53,6 +51,15 @@
 			}
 		});
 		
+		//Trigger 
+		input.addEventListener("keyup", function(event){
+			event.preventDefault();
+			$('#search-suggestions').show();
+			
+		});
+		
+
+		
 		/*
 			Result not found functionality
 			
@@ -61,19 +68,14 @@
 			
 			* * * * * * * * * * * * * * * * * * * * * * * * 
 			
-				CHANGE HERE WHEN DB AVAILABLE
-				
-				
-				query === banana
+				Change query === banana
 				
 				Here implement database check to see if query matches ANY database recipes/keywords
 			
 			* * * * * * * * * * * * * * * * * * * * * * * * 
 		*/
 		
-		if(toLowerCase(getURLsearchValue("query")) === "banana" 
-		   || toLowerCase(getURLsearchValue("query")) === "apple" 
-		   || toLowerCase(getURLsearchValue("query")) === "orange"){
+		if(toLowerCase(getURLsearchValue("query")) === "banana" || toLowerCase(getURLsearchValue("query")) === "apple" || toLowerCase(getURLsearchValue("query")) === "orange"){
 			
 			$(document).ready(function() {
 				$('.content').show();
@@ -99,8 +101,6 @@
 		else{
 			document.getElementById("search-result-show").textContent= "Nothing found. Try something else!";
 			
-			document.getElementsByClassName("content");
-			
 			
 			$(document).ready(function() {
 				$('.content').hide();
@@ -112,7 +112,6 @@
 	}//end window.onload
 	
 	
-
 /*	Formatting Tools	*/
 
 //Return string with first leter capitalized
@@ -130,3 +129,6 @@ function toLowerCase(str)
 {
 	return str.replace(/\w\S*/g, function(txt){return txt.substr(0).toLowerCase();});
 }
+
+
+
