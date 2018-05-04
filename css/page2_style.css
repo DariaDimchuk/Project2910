@@ -96,14 +96,12 @@ html{
 	padding: 10px;
 	margin: 0px 12%;
 	text-align: left;
-	font-size: 5vw;
 }
 
 .recipes a{
 	font-family: 'Quicksand', sans-serif;
-	font-size: 3.5vw;
+	font-size: 4vw;
 	text-decoration: none;
-	padding: 10px;
 	text-align: left;
 	font-weight: 100;
 }
