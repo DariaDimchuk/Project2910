@@ -26,20 +26,13 @@ html{
 
 .content{
 	background-color: transparent;
-	padding: 5% 15% 5% 15%;
+	//padding: 5% 15% 5% 15%;
 	
 	/* loads hidden - when clicked, content shows */
 	display: none;
 }
 
 
-.title{
-
-	max-height: 240px;
-    padding-top: 5%;
-    font-size: 3vw;
-    background-color: transparent;
-}
 
 #menu{
 	background-color: #98253b;
@@ -63,9 +56,6 @@ html{
 	margin: 5% 0 5% 0;
 }
 
-#search-section{
-	margin-left: 5%;
-}
 
 /*	Content style - buttons and recipes below them	*/
 	
@@ -79,13 +69,14 @@ html{
 	padding: 10px;
 }
 
-#food-button:focus, #health-button:focus , #tips-button:focus{
+#food-button:focus, #health-button:focus , #tips-button:focus, #household-button:focus{
 	outline:none;
 }
 
-#food-button, #health-button , #tips-button{	
-	min-width: 200px;
-	padding: 18px;
+#food-button, #health-button , #tips-button, #household-button{
+	min-width: 71vw;
+	padding: 6vw;
+	font-size: 5vw;
 	margin: 10px;
 	background: #f1dd7f;
 	border: 1px solid transparent;
@@ -94,22 +85,32 @@ html{
 	
 }
 
+
+.food{
+	min-width: 80vw;
+}
+
 .recipes{
 	/* loads hidden - when clicked, content shows */
 	display: none;
 	padding: 10px;
+	margin: 0px 12%;
+	text-align: left;
+	font-size: 5vw;
 }
 
 .recipes a{
 	font-family: 'Quicksand', sans-serif;
-	font-size: 13px;
+	font-size: 3.5vw;
 	text-decoration: none;
-	padding: 5px;
+	padding: 10px;
+	text-align: left;
+	font-weight: 100;
 }
 
-
 .expand-image{
-	max-height: 15px;	
+	max-height: 5vw;
+	margin-top: 2px;
 }
 
 
