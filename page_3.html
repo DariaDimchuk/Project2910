@@ -19,6 +19,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="./js/main_script.js"></script>
 	<script src="./js/page2_script.js"></script>
+	<script src="./js/page3_script.js"></script>
 	
 </head>
 	
@@ -40,22 +41,14 @@
 			
 			
 			<div id="search-section">
-				<input type="text" id="searchbar" onkeyup="autocompleteMenuList()" placeholder="Search food ...">
+				<input type="text" id="searchbar" placeholder="Search food ...">
 				
 				<button onclick="search()" type="button" id="search-button">
 				
 					<img src="./website_images/search-icon.png" class="search-button-image">
 				
 				</button>
-				
-				<div id="search-suggestions-container">
-					<ul id="search-suggestions">
-						<li><a href="#" onclick="selectSearchItem(this)">banana</a></li>
-						<li><a href="#" onclick="selectSearchItem(this)">apple</a></li>
-						<li><a href="#" onclick="selectSearchItem(this)">orange</a></li>
-					</ul>
-				</div>
-			
+
 			</div>
 			
 		</div>
@@ -63,26 +56,19 @@
 		
 		<div class="content">
 			
-			<h2> Banana Bread Recipe </h2>
-			<hr>
-			<div class="recipe">
+			<h2 id="recipe_name"></h2>
+
+			<div class="recipe" style="display: none;">
+				<p id="prep_time"></p>
+				<p id="cook_time"></p>
 				<h4>Ingredients</h4>
 				<list id="ingredients">
-					<li>2 overripe bananas</li>
-					<li>1 1/2 cups all purpose flour</li>
-					<li>1 egg</li>
-					<li>1/3 cup melted butter</li>
-					<li>1  teaspoon baking soda</li>
+
 				</list>
-				
-				<div id="instructions">
-					<h4>Instructions</h4>
-					<p>Preheat oven to 350 degrees.</p>
-					<p>Mash bananas in a bowl.</p>
-					<p>Add flour, baking soda, egg and butter. Mix.</p>
-					<p>Optionally, for a sweeter bread, add  1/2 cup sugar and vanilla extract. Mix.</p>
-					<p>Bake for 20 minutes in a 4x8 inch oven-safe loaf pan. Enjoy!</p>
-				
+
+				<div id="directions">
+					<h4>Directions</h4>
+
 				</div>
 			
 			</div>
