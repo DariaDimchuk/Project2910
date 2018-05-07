@@ -1,5 +1,5 @@
-<?php
-
+<?php 
+	
 	$query = $_REQUEST["query"];
 	
     $methodType = $_SERVER['REQUEST_METHOD'];
@@ -20,6 +20,7 @@
     $dblogin = "jasonngu_admin";
     $password = "bananabreadrecipe";
     $dbname = "jasonngu_app";
+	
 
     $data = array("msg" => "Nothing");
 
@@ -33,8 +34,7 @@
             // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $sql = "SELECT * FROM Recipe WHERE Recipe_Name = '%$query%';";
-			echo $sql;
+            $sql = "SELECT * FROM Recipe WHERE Recipe_ID = '$query';";
 
             $statement = $conn->prepare($sql);
             $statement->execute();
@@ -57,29 +57,40 @@
 
                     break;
                 case "html":
-    
+					
+					
                     // each of is an object of type stdClass
                     while ($row = $statement->fetchObject()) {
                     
-						$recipe = new stdClass;
-						$recipe->id = $row->Recipe_ID;
-						$recipe->category = $row->Recipe_Category;
-						$recipe->name = $row->Recipe_Name;
-						$recipe->ingredients = $row->Recipe_Ingredients;
-						$recipe->directions = $row->Recipe_Directions;
+						$recipe = 						new stdClass;
+						$recipe->id = 					utf8_encode($row->Recipe_ID);
+						$recipe->category = 			utf8_encode($row->Recipe_Category);
+						$recipe->name = 				utf8_encode($row->Recipe_Name);
+						$recipe->html_link = 			"<a href='./page_3.html?query=" . utf8_encode($row->Recipe_ID) . "' class='db_recipe_link'  id='" . utf8_encode($row->Recipe_ID) . "'>" . utf8_encode($row->Recipe_Name) . "</a>";
+						
+						$recipe->prep_time = 			utf8_encode($row->Recipe_Prep_Time);
+						$recipe->cook_time = 			utf8_encode($row->Recipe_Cook_Time);
+						$recipe->num_of_ingredients = 	utf8_encode($row->Recipe_Num_Ingredients);
+						$recipe->ingredients = 			utf8_encode($row->Recipe_Ingredients);
+						$recipe->directions = 			utf8_encode($row->Recipe_Directions);
 						
 						
-						echo '<script>';
-							echo 'var db_recipe_content = ' . json_encode($recipe) . ';';
-							echo 'usePhpVarToFillRecipeContent(db_recipe_content);';
-						echo '</script>';
-
+                    }
+					
                     break;
             }
 
         } else {
             echo "Need a type of output!";
         }
+		
+		
+		echo '<script>';
+			echo 'var db_recipe = ' . json_encode($recipe) . ';';
+			echo 'usePhpVarToFillRecipePage(db_recipe);';
+		echo '</script>';
 
 ?>
+
+
 
