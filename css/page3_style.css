@@ -22,11 +22,6 @@ html{
 }
 
 
-
-.wrapper{
-	background-color: #f6f6f6;
-}
-
 .content{
 	background-color: transparent;
 	padding: 5% 15% 5% 15%;
@@ -69,7 +64,7 @@ html{
 	text-align: left;
 }
 
-.recipe h1, h2 {
+.recipe h1, h2{
 	color: #565656;
 	font-weight: 100;
 }
