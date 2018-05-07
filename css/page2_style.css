@@ -18,12 +18,6 @@ html{
 	opacity: 0.8;
 }
 
-
-
-.wrapper{
-	background-color: #f6f6f6;
-}
-
 .content{
 	background-color: transparent;
 	//padding: 5% 15% 5% 15%;
@@ -95,10 +89,6 @@ html{
 	display: none;
 	padding: 10px;
 	margin: 0px 12%;
-	text-align: left;
-}
-
-.recipes a{
 	font-family: 'Quicksand', sans-serif;
 	font-size: 4vw;
 	text-decoration: none;
@@ -106,8 +96,12 @@ html{
 	font-weight: 100;
 }
 
+.recipes a{
+	text-decoration: none;
+}
+
 .expand-image{
-	max-height: 5vw;
+	max-height: 6vw;
 	margin-top: 2px;
 }
 
