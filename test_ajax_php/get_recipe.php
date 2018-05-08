@@ -34,9 +34,10 @@
             // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $sql = "SELECT * FROM Recipe WHERE Recipe_ID = '$query';";
+            $sql = "SELECT * FROM Recipe WHERE Recipe_Name LIKE :query1 OR Recipe_Ingredients LIKE :query2;";
 
             $statement = $conn->prepare($sql);
+            $statement->bindParam(':query1', '%'.$query.'%', PDO::PARAM_STR);
             $statement->execute();
                         
 
