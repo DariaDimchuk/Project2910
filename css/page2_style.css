@@ -1,39 +1,32 @@
-@media screen and (max-width: 800px) {
-	html {
-		background: url('../website_images/food2.jpg');
-		background-repeat: no-repeat;
-		background-size: contain;
-		background-color: #f6f6f6;
-	}
-}
-
-@media screen and (min-width: 801px) {
-	html {
-		background: url('../website_images/food2.jpg');
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-color: #f6f6f6;
+@media screen and (min-width: 600px) {
+	#banner_image {
+		padding: 10%!important;
 	}
 }
 
 
-
-.wrapper{
+html{
 	background-color: #f6f6f6;
+}
+
+#banner_image{
+	background: url(../website_images/food2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 14%;
+    min-height: 20%;
+	opacity: 0.8;
 }
 
 .content{
 	background-color: transparent;
-	padding: 5% 15% 5% 15%;
+	//padding: 5% 15% 5% 15%;
+	
+	/* loads hidden - when clicked, content shows */
+	display: none;
 }
 
 
-.title{
-	max-height: 200px;
-	padding-top: 2%;
-	margin-top: 22%;
-	background-color: transparent;
-}
 
 #menu{
 	background-color: #98253b;
@@ -57,25 +50,27 @@
 	margin: 5% 0 5% 0;
 }
 
-#search-section{
-	margin-left: 5%;
-}
 
 /*	Content style - buttons and recipes below them	*/
 	
-.recipes{
-	/* loads hidden - when clicked, content shows */
-	display: none;	
+
+#search-result-show{
+	text-align: center;
+	margin: 5% 1% 0 1%;
+	color: #565656;
+    font-weight: 100;
+	font-size: 5vw;
+	padding: 10px;
 }
 
-
-#food-button:focus, #health-button:focus , #tips-button:focus{
+#food-button:focus, #health-button:focus , #tips-button:focus, #household-button:focus{
 	outline:none;
 }
 
-#food-button, #health-button , #tips-button{	
-	min-width: 200px;
-	padding: 18px;
+#food-button, #health-button , #tips-button, #household-button{
+	min-width: 71vw;
+	padding: 6vw;
+	font-size: 5vw;
 	margin: 10px;
 	background: #f1dd7f;
 	border: 1px solid transparent;
@@ -84,26 +79,30 @@
 	
 }
 
+
+.food{
+	min-width: 80vw;
+}
+
 .recipes{
+	/* loads hidden - when clicked, content shows */
+	display: none;
 	padding: 10px;
+	margin: 0px 12%;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 4vw;
+	text-decoration: none;
+	text-align: left;
+	font-weight: 100;
 }
 
 .recipes a{
-	font-family: 'Quicksand', sans-serif;
-	font-size: 13px;
 	text-decoration: none;
-	padding: 5px;
 }
 
-
-
-
-
-
-
-
-
-
-
+.expand-image{
+	max-height: 6vw;
+	margin-top: 2px;
+}
 
 

@@ -5,7 +5,8 @@
 <head>
 	<title>Save Your Food</title>
 	<meta charset = "utf-8">
-	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
@@ -14,50 +15,8 @@
 	<link rel="stylesheet" type="text/css" href="./css/page1_style.css">
 	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 	
-	
-	<script>
-	
-	/*	SEARCH FUNCTIONALITY	*/
-	
-	
-	/*	Store search value in variable	*/
-	
-	function getSearchValue() {
-		var searchInput = document.getElementById("searchbar").value;
-		
-		return searchInput;
-	}
-	
-	
-	/*	Trigger search when enter is hit	*/
-	
-		//must be made onload - otherwise "searchbar" returns null value
-		window.onload=function(){
-			//get value that is being searched
-			var input = document.getElementById("searchbar");
-			
-			//if ENTER is hit on input field, the button is clicked
-			input.addEventListener("keyup", function(event){
-				event.preventDefault();
-				if(event.keyCode === 13){
-					document.getElementById("search-button").click();
-				}
-			});
-		}
-		
-		
-		
-	/*	Search button functionality	*/
-	
-		//load search results website on button click
-		function search(){
-			
-			//onclick=window.location.href = './page_2.html';
-			onclick=window.location.href = './page_2.html?query=' + getSearchValue();;
-		}
-		
-	</script>
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="./js/main_script.js"></script>
 	
 </head>
 	
@@ -66,10 +25,12 @@
 	
 	<div class="wrapper">
 		
-		<div class="parallax parallax_1"></div>
+		<div class="image-banner">
+			<img src="./website_images/food1.jpg"></img>
+		</div>
 		
-		<div class = "title">
-			<h1>Save Your Food!</h1>
+		<div class = "content">
+			<h1 id="title">Save Your Food!</h1>
 			
 			<nav id="menu">
 				<a href=#about>About Us</a>
@@ -85,6 +46,7 @@
 					<img src="./website_images/search-icon.png" class="search-button-image">
 				
 				</button>
+				
 			</div>
 		</div>
 		
@@ -101,7 +63,9 @@
 		</div>
 		
 		
-		<div class="parallax parallax_2"></div>
+		<div class="image-banner">
+				<img src="./website_images/food2.jpg"></img>
+			</div>
 		
 		
 		<div class="content">
@@ -126,7 +90,9 @@
 		</div>
 		
 		
-		<div class="parallax parallax_3"></div>
+		<div class="image-banner">
+				<img src="./website_images/food3.jpg"></img>
+			</div>
 		
 		
 		<div class="content">
@@ -146,7 +112,9 @@
 		</div>
 		
 		
-		<div class="parallax parallax_1" style="min-height: 300px;"></div>
+		<div class="image-banner">
+				<img src="./website_images/food1.jpg"></img>
+			</div>
 		
 			
 	</div>

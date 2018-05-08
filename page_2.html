@@ -5,6 +5,7 @@
 <head>
 	<title>Save Your Food</title>
 	<meta charset = "utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
 	<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -16,89 +17,8 @@
 	
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	
-	<script>
-	
-	/*	BUTTONS FUNCTIONALITY	*/
-	
-	
-	/*	Food Skincare and Tips buttons functionality - when clicked reveal
-		content, when clicked again - hide that content		*/
-	
-		$(document).ready(function(){
-			$("#food-button").click(function(){
-				$("#food-recipes").toggle('450', "swing", function(){
-					//Animation done.
-				});
-			});
-		
-		});
-		
-		
-		
-		$(document).ready(function(){
-			$("#health-button").click(function(){
-				$("#health-recipes").toggle('450', "swing", function(){
-					//Animation done.
-				});
-			});
-		
-		});
-		
-		
-		$(document).ready(function(){
-			$("#tips-button").click(function(){
-				$("#tips-recipes").toggle('450', "swing", function(){
-					//Animation done.
-				});
-			});
-		
-		});
-	
-	
-	/*	SEARCH FUNCTIONALITY	*/
-	
-	
-	
-	/*	Store search value in variable	*/
-	
-	function getSearchValue() {
-		var searchInput = document.getElementById("searchbar").value;
-		
-		return searchInput;
-	}
-	
-	
-	/*	Trigger search when enter is hit	*/
-	
-		//must be made onload - otherwise "searchbar" returns null value
-		window.onload=function(){
-			//get value that is being searched
-			var input = document.getElementById("searchbar");
-			
-			//if ENTER is hit on input field, the button is clicked
-			input.addEventListener("keyup", function(event){
-				event.preventDefault();
-				if(event.keyCode === 13){
-					document.getElementById("search-button").click();
-				}
-			});
-		}
-		
-		
-		
-	/*	Search button method	*/
-	
-		//load search results website on button click
-		function search(){
-			
-			//onclick=window.location.href = './page_2.html';
-			onclick=window.location.href = './page_2.html?query=' + getSearchValue();;
-		}
-		
-	
-	</script>
-	
+	<script src="./js/main_script.js"></script>
+	<script src="./js/page2_script.js"></script>
 	
 	
 </head>
@@ -107,17 +27,17 @@
 <body>
 	<div class="top-bar">
 		<nav id="menu">
-			<a href="./page_1.html#about">about</a>
-			<a href="./page_1.html#why">why</a>
-			<a href="./page_1.html#how">how</a>
+			<a href="index.html#about">about</a>
+			<a href="index.html#why">why</a>
+			<a href="index.html#how">how</a>
 		</nav>
 	</div>
 	
-	
+	<div id="banner_image"></div>
 	<div class="wrapper">
 		
-		<div class = "title">
-			<h1>Save Your Food!</h1>
+		<div>
+			<h1 id="title">Save Your Food!</h1>
 			
 			
 			<div id="search-section">
@@ -128,43 +48,59 @@
 					<img src="./website_images/search-icon.png" class="search-button-image">
 				
 				</button>
-				
 			
 			</div>
 			
 		</div>
 		
 		
-		<div class="content">
-			<div class="food">
+		<div id="search-result-show">
+		</div>
+		
+		<div class="content" style="display: none">
+			<div class="food" style="display: none;">
 				<button type="button" id="food-button">
 					Food Recipes
+					
+					<img src="./website_images/expand.png" class="expand-image" align= "right">
 				</button>
 				<div class="recipes" id="food-recipes">
-					<a href="./page_3.html"> Banana Bread</a>
 						
 				</div>
 			</div>
-		
-			<div class="health">
+
+
+			<div class="health" style="display: none;">
 				<button type="button" id="health-button">
 					Skincare Recipes
+					<img src="./website_images/expand.png" class="expand-image" align= "right">
 				</button>
 				
 				<div class="recipes" id="health-recipes">
-					<a href="./page_3.html"> Face Mask 2</a>
-					<hr>
-					<a href="./page_3.html"> Coconut Butter</a>
+
+				</div>
+			</div>
+
+
+			<div class="household" style="display: none;">
+				<button type="button" id="household-button">
+					Household Recipes
+					<img src="./website_images/expand.png" class="expand-image" align= "right">
+				</button>
+
+				<div class="recipes" id="household-recipes">
+
 				</div>
 			</div>
 		
-			<div class="tips">
+			<div class="tips" style="display: none;">
 				<button type="button" id="tips-button">
-					Tips for Bananas
+					Tips
+					<img src="./website_images/expand.png" class="expand-image" align= "right";>
 				</button>
 				
 				<div class="recipes" id="tips-recipes">
-					<a href="./page_3.html"> How to keep bananas fresh</a>
+
 				</div>
 				
 			</div>
