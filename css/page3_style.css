@@ -35,7 +35,7 @@ html{
 }
 
 #menu a{
-	padding: 4px 12px 6px 12px;
+	padding: 1vw 3vw 1vw 3vw;
 	color: white;
 }
 
@@ -53,18 +53,26 @@ html{
 	
 }
 
-#search-section{
-	margin-left: 5%;
-}
-
-
 /*	Content style - recipes */
 
 .recipe{
 	text-align: left;
+	font-size: 3.8vw;
 }
 
 .recipe h1, h2{
 	color: #565656;
 	font-weight: 100;
+	font-size: 6vw;
+
+}
+
+.recipe h4{
+	font-size: 4.5vw;
+}
+
+#prep_time, #cook_time{
+	font-size: 3.7vw;
+	margin: 2vw 0;
+	font-style: italic;
 }
