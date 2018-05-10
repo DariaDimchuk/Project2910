@@ -71,7 +71,7 @@ function usePhpVarToFillRecipePage(recipeObject){
 
         var ingredientsArray = recipeObject['ingredients'].split(/\n/);
         for(i = 0; i < ingredientsArray.length; i++){
-            $('#ingredients').append(ingredientsArray[i] + "<br>");
+            $('#ingredients').append(ingredientsArray[i] + "<br><br>");
         }
 
 

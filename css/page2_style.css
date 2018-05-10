@@ -35,7 +35,7 @@ html{
 
 
 #menu a{
-	padding: 4px 12px 6px 12px;
+	padding: 1vw 3vw 1vw 3vw;
 	color: white;
 }
 
@@ -98,11 +98,53 @@ html{
 
 .recipes a{
 	text-decoration: none;
+	padding: 3vw 0;
 }
 
 .expand-image{
 	max-height: 6vw;
 	margin-top: 2px;
+	opacity: 0.7;
+}
+
+.link_details{
+	font-size: 3vw;
+	font-style: italic;
+}
+
+.d20{
+	max-width: 40vw;
+	margin: 0 30%;
+}
+
+#d20_button{
+	background: transparent;
+	border: none;
+	height: 40vw;
+	outline: none;
+}
+
+#d20_button_text{
+	margin-top: -60%;
+	font-size: 4vw;
+	font-weight: 600;
+	object-fit: contain;
+}
+
+#d20_img{
+	max-width: 35vw;
+	object-fit: fill;
+	margin-top: -15vw;
+	-webkit-user-drag: none;
 }
 
 
+#bottom_text{
+	margin: 8vw 5vw 12vw 5vw;
+	text-align: center;
+	font-size: 5vw;
+}
+
+#bottom_text a{
+	text-decoration: none;
+}
