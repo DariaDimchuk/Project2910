@@ -1,59 +1,7 @@
-/*	Basic Styling	*/
-
-/*	Basic Styling	*/
-@media screen and (min-width: 600px) {
-	#banner_image {
-		padding: 10%!important;
-	}
-}
-
-html{
-	background-color: #f6f6f6;
-}
-
-
-#banner_image{
-	background: url(../website_images/food2.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 14%;
-    min-height: 20%;
-	opacity: 0.8;
-}
-
 
 .content{
-	background-color: transparent;
 	padding: 5% 15% 5% 15%;
 }
-
-/*	Top mini menu - about, how, why	*/
-
-#menu{
-	background-color: #98253b;
-	padding-bottom: 5px;
-}
-
-#menu a{
-	padding: 1vw 3vw 1vw 3vw;
-	color: white;
-}
-
-#menu a:hover{
-	color: black;
-	background-color: #ffffffcf;
-	transition: background-color 0.8s, color 0.4s;
-}
-
-
-/*	Search Bar section styling	*/
-
-#searchbar{
-	margin: 5% 0 5% 0;
-	
-}
-
-/*	Content style - recipes */
 
 .recipe{
 	text-align: left;
