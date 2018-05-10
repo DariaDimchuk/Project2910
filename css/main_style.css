@@ -1,80 +1,104 @@
 
-/*	WINDOW ONLOAD FUNCTIONALITY		*/
+html, body{
+	margin: 0;
+	letter-spacing: 1px;
+	font-size: 20px;
+	font-family: 'Quicksand', Arial,sans-serif;
+}
+
+hr{
+	height: 1px;
+	color: #56565640;
+	background: #56565640;
+	border: none!important;
+}
+
+.content{
+	min-height: 35%;
+	text-align: center;
+	font-family:'Quicksand', Arial,sans-serif;
+	font-size: 4.5vw;
+}
+
+.wrapper{
+	background-color: #f6f6f6;
+
+}
+
+#title{
+	font-weight: 100;
+	font-size: 9vw;
+	margin: 0 auto;
+	text-align: center;
+	padding: 15px 0 15px 0;
+	color: #565656;
+	background-color: #f6f6f6;
+}
 
 
-    /**
-	 * Runs when the page is loaded.
-	 *
-	 * Important: all common code between scripts and pages must be repeated again in window.onload - otherwise another
-	 * script page will overwrite the needed code.
-	 *
-	 * So, don't combine common code in window.onload between pages into one script file and hope it'll all get called.
-     */
-	window.onload=function(){
-
-		triggerSearchOnEnter();	//must be called from onload, otherwise null error occurs
-
-	}//end window.onload
+/*	Top mini menu - about, how, why	*/
 
 
+#menu{
+	display: block;
+	width: 100%;
+	left: 0px;
+	min-height: 20%;
+	text-align: center;
+}
 
-/*	Search button functionality	*/
+#menu a{
+	margin: 0 1vw;
+	font-size: 4vw;
+	text-decoration: none;
+	font-family: 'Quicksand', Arial,sans-serif;
+	letter-spacing: 1px;
+	-webkit-user-drag: none;
+}
 
-
-    /**
-     * Function triggers the search button when ENTER is hit in the input search bar.
-     */
-    function triggerSearchOnEnter(){
-        //get value that is being searched
-        var input = document.getElementById("searchbar");
-
-        //if ENTER is hit on input field, the button is clicked
-        input.addEventListener("keyup", function(event){
-            event.preventDefault();
-            if(event.keyCode === 13){
-                document.getElementById("search-button").click();
-            }
-        });
-
-    }//end
-
-
-
-    /**
-     * Returns whatever the value is in the input searchbar currently.
-     * @returns {string - searchbar value}
-     */
-    function getSearchValue() {
-        return document.getElementById("searchbar").value;
-    }//end
+#menu a:hover{
+	border-radius: 10px;
+	border-color: transparent;
+}
 
 
-    /**
-     * Regex method that takes the current URL, and returns whatever is appended after
-     * "?query=". Search results from the previous page can be accessed this way.
-     *
-     * @param name - keyword to filter for - should be "query"
-     * @param url - full URL of the current page
-     * @returns {returns the items searched for from the URL}
-     */
-    function getURLsearchValue(name, url) {
-        if (!url) url = window.location.href;
-        name = name.replace(/[\[\]]/g, "\\$&");
-        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-            results = regex.exec(url);
-        if (!results) return null;
-        if (!results[2]) return '';
-        return decodeURIComponent(results[2].replace(/\+/g, " "));
-    }//end
+/*	Search Bar section styling	*/
 
 
+input:focus{
+	outline:none;
+}
 
-    /**
-	 * When search() is triggered, load window to page 2 and append
-	 * "?query=XXX" where XXX is the input being searched.
-	 *
-	 * Search should be triggered on click of the search button, or when ENTER is hit in the input searchbar.
-     */
-	function search(){
-		onclick=window.location.href = './page_2.html?query=' + getSearchValue();
-	}//end
+#searchbar{
+	font-family: 'Quicksand', sans-serif;
+	font-size: 4.5vw;
+	min-width: 60%;
+	border-radius: 10px;
+	padding: 10px 5px;
+	border: 1px solid #0000003b;
+    margin: 5% 0;
+}
+
+#search-section {
+	text-align: center;
+	margin-left: 5%;
+}
+
+#search-button{
+	background: transparent;
+	border: none;
+	width: 30px;
+	margin: 0 0 -2px -3px;
+	
+}
+
+#search-button img{
+	max-width: 18px;
+	margin: 0 0 -2px -3px;
+	-webkit-user-drag: none;
+}
+
+.recipe_name{
+	text-decoration: none;
+}
+
