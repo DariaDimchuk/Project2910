@@ -5,17 +5,10 @@
 }
 
 html{
-	background-color: #f6f6f6;
+    --background-color: #f9f9f9;
+	background-color: white;
 }
 
-#banner_image{
-	background: url(../website_images/food2.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 14%;
-    min-height: 20%;
-	opacity: 0.8;
-}
 
 .content{
 	background-color: transparent;
@@ -23,26 +16,6 @@ html{
 	/* loads hidden - when clicked, content shows */
 	display: none;
 }
-
-
-#menu{
-	background-color: #98253b;
-	padding-bottom: 5px;
-    height: 12vw;
-}
-
-
-#menu a{
-	padding: 1vw 3vw 1vw 3vw;
-	color: white;
-}
-
-#menu a:hover{
-	color: black;
-	background-color: #ffffffcf;
-	transition: background-color 0.8s, color 0.4s;
-}
-
 
 /*	Content style - buttons and recipes below them	*/
 	
@@ -64,8 +37,8 @@ html{
 	min-width: 71vw;
 	padding: 6vw;
 	font-size: 5vw;
-	margin: 10px;
-	background: #f1dd7f;
+	margin: 15px;
+	background: #fcc31c;
 	border: 1px solid transparent;
 	border-radius: 10px;
 	font-family: 'Quicksand', sans-serif;
