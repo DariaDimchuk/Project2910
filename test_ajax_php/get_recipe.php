@@ -35,6 +35,7 @@
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             $sql = "SELECT * FROM Recipe WHERE Recipe_ID = :query1;";
+
             $statement = $conn->prepare($sql);
             $statement->bindParam(':query1', $query, PDO::PARAM_STR);
             $statement->execute();
@@ -91,6 +92,3 @@
 		echo '</script>';
 
 ?>
-
-
-
