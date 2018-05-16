@@ -34,8 +34,11 @@
             // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $sql = "SELECT * FROM Recipe WHERE Recipe_Name LIKE :query1 OR Recipe_Ingredients LIKE :query1;";
-
+            $likeQuery = "%$query%";
+			
+			$sql = "SELECT * FROM Recipe WHERE Recipe_Name LIKE :query1 OR Recipe_Ingredients LIKE :query1;";
+			
+			
             $statement = $conn->prepare($sql);
             $statement->bindParam(':query1', $likeQuery, PDO::PARAM_STR);
             $statement->execute();
@@ -83,6 +86,8 @@
 						
                     }
 					
+					$resultsArray = array_unique($resultsArray, SORT_REGULAR);
+					
                     break;
             }
 
@@ -98,6 +103,3 @@
 		echo '</script>';
 
 ?>
-
-
-
