@@ -29,7 +29,8 @@ html, body, .wrapper{
 
 
 .content{
-	background-color: #f6f6f6;
+	--background-color: #f9f9f9;
+	background-color: white;
 	position: relative;
 	padding-bottom: 5px;	
 }
@@ -41,7 +42,7 @@ html, body, .wrapper{
 }
 
 .content h2{
-	background: #f1dd7f;
+	background: #fcc31c;
 	margin: 0;
 	padding: 20px;
 	margin-bottom: -27px;
@@ -49,26 +50,6 @@ html, body, .wrapper{
 
 .content p{
 	margin: 5%;
-}
-
-
-#menu{
-	background: transparent;
-	margin: 5vw 0;
-	
-}
-
-#menu a{
-	padding: 8px 10px 8px 10px;
-	color: black;
-	
-}
-
-
-#menu a:hover{
-	background-color: #ffffffcf;
-	transition: background-color 0.8s;
-	
 }
 
 

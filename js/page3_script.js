@@ -11,6 +11,9 @@ window.onload=function(){
     connecttoPHPfile_GetRecipe();	//must be called from onload, otherwise null error occurs
     triggerSearchOnEnter(); //must be called in window.onload to avoid null
 
+    //console.log(document.styleSheets[4]);   //widget stylesheet
+
+
 }//end window.onload
 
 
@@ -62,6 +65,9 @@ function usePhpVarToFillRecipePage(recipeObject){
         $('.recipe').hide();
 
     }else{
+
+        loadStarRatingWidget();
+
         $('.recipe').show();
 
         $('#recipe_name').append(recipeObject['name'] + "<br><hr>");
@@ -83,5 +89,25 @@ function usePhpVarToFillRecipePage(recipeObject){
 
 }//end
 
+/**
+ * Load the star ratings to the recipe page.
+ */
+function loadStarRatingWidget(){
+    $("#widget").append("<div class='wpac-rating' data-wpac-chan='test'></div>");
+
+    var string = getURLsearchValue("query");
+    $(".wpac-rating").attr('data-wpac-chan', string);
 
 
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({widget: 'Rating', id: 11452});
+    (function() {
+        if ('WIDGETPACK_LOADED' in window) return;
+        WIDGETPACK_LOADED = true;
+        var mc = document.createElement('script');
+        mc.type = 'text/javascript';
+        mc.async = true;
+        mc.src = 'https://embed.widgetpack.com/widget.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+}//end function

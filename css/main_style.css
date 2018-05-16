@@ -1,3 +1,7 @@
+span.tab_icon {
+    font-size: 16px!important;
+}
+
 
 html, body{
 	margin: 0;
@@ -13,16 +17,28 @@ hr{
 	border: none!important;
 }
 
+
+#banner_image {
+	background: url(../website_images/food2.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding: 14%;
+	--max-height: 20%;
+	height: 12vw;
+	opacity: 0.8;
+}
+
+
 .content{
-	min-height: 35%;
+	min-height: 25%;
 	text-align: center;
 	font-family:'Quicksand', Arial,sans-serif;
 	font-size: 4.5vw;
 }
 
 .wrapper{
-	background-color: #f6f6f6;
-
+    --background-color: #f9f9f9;
+	background-color: white;
 }
 
 #title{
@@ -32,7 +48,7 @@ hr{
 	text-align: center;
 	padding: 15px 0 15px 0;
 	color: #565656;
-	background-color: #f6f6f6;
+	background-color: transparent;
 }
 
 
@@ -40,25 +56,24 @@ hr{
 
 
 #menu{
-	display: block;
-	width: 100%;
-	left: 0px;
-	min-height: 20%;
+	background-color: #E91E63;
+	padding-bottom: 5px;
+	height: 12vw;
 	text-align: center;
 }
 
+
 #menu a{
-	margin: 0 1vw;
-	font-size: 4vw;
+	padding: 1vw 3vw 1vw 3vw;
+	color: white;
 	text-decoration: none;
-	font-family: 'Quicksand', Arial,sans-serif;
-	letter-spacing: 1px;
-	-webkit-user-drag: none;
+	font-size: 5vw;
 }
 
 #menu a:hover{
-	border-radius: 10px;
-	border-color: transparent;
+	color: black;
+	background-color: #ffffffcf;
+	transition: background-color 0.8s, color 0.4s;
 }
 
 
@@ -74,9 +89,11 @@ input:focus{
 	font-size: 4.5vw;
 	min-width: 60%;
 	border-radius: 10px;
-	padding: 10px 5px;
+	padding: 1.6vw;
 	border: 1px solid #0000003b;
     margin: 5% 0;
+    --background: #fcfcfb;
+	background-color: white;
 }
 
 #search-section {
@@ -93,7 +110,7 @@ input:focus{
 }
 
 #search-button img{
-	max-width: 18px;
+	max-width: 5vw;
 	margin: 0 0 -2px -3px;
 	-webkit-user-drag: none;
 }

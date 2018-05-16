@@ -1,6 +1,7 @@
 
 .content{
 	padding: 5% 15% 5% 15%;
+	font-size: 4.5vw;
 }
 
 .recipe{
@@ -24,3 +25,8 @@
 	margin: 2vw 0;
 	font-style: italic;
 }
+
+#widget{
+	margin-bottom: 8vw;
+}
+
