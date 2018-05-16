@@ -52,6 +52,11 @@ hr{
 	background-color: transparent;
 }
 
+#title a, #title a:visited, #title a:active{
+	text-decoration: none;
+	color: #565656;
+}
+
 
 /*	Top mini menu - about, how, why	*/
 
