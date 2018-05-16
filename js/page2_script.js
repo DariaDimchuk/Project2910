@@ -145,35 +145,77 @@ function usePhpVarToFillResultContent(arraysize, recipeArray){
 
         $('.content').show();
 
-        for (i=0; i<arraysize; i++) {
+        //get rid of duplicates
+        var uniqueArr = uniqueArray(recipeArray);
 
-            var recipe = recipeArray[i];
+        for (i=0; i<uniqueArr.length; i++) {
 
-            if(recipe['category'] === 'food'){
-                $('.food').show();
-                fillCategory('#food-recipes', recipe);
-            }
+            var recipe = uniqueArr[i];
+            if(recipe !== null){
+                if(recipe['category'] === 'food'){
+                    $('.food').show();
+                    fillCategory('#food-recipes', recipe);
+                }
 
-            if(recipe['category'] === 'beauty'){
-                $('.health').show();
-                fillCategory('#health-recipes', recipe);
-            }
+                if(recipe['category'] === 'beauty'){
+                    $('.health').show();
+                    fillCategory('#health-recipes', recipe);
+                }
 
-            if(recipe['category'] === 'household'){
-                $('.household').show();
-                fillCategory('#household-recipes', recipe);
-            }
+                if(recipe['category'] === 'household'){
+                    $('.household').show();
+                    fillCategory('#household-recipes', recipe);
+                }
 
-            if(recipe['category'] === 'tip'){
-                $('.tips').show();
-                fillCategory('#tips-recipes', recipe);
-            }
+                if(recipe['category'] === 'tip'){
+                    $('.tips').show();
+                    fillCategory('#tips-recipes', recipe);
+                }
+            }//end null check
+
         }//end loop
 
     }//end else
 
 }//end
 
+/**
+ * Makes an array have no duplicate recipe values.
+ * Does NOT check by ID - checks by name + directions + ingredients list.
+ * (Duplicates will always have different IDs but the same contents).
+ *
+ * @param array - array to make unique
+ * @returns {any[]} - returns array with no duplicates
+ */
+function uniqueArray(array) {
+    var uniqueArray = new Array();
+
+    //for each recipe
+    for(i = 0; i < array.length; i++){
+        var currentRecipe = array[i];
+
+        var unique = true;  //resets each loop
+
+        //if a copy exists in new array, not unique, so don't add.
+        //DO NOT check by ID - duplicates will have different IDs
+        for(x = 0; x < uniqueArray.length; x++){
+            if(     (currentRecipe['directions'] === uniqueArray[x]['directions'])
+                && (currentRecipe['ingredients'] === uniqueArray[x]['ingredients'])
+                && (currentRecipe['name'] === uniqueArray[x]['name'])){
+
+                unique = false;
+            }
+        }//end loop
+
+        //add if unique
+        if(unique){
+            uniqueArray.push(currentRecipe);
+        }
+    }//end loop
+
+    return uniqueArray;
+
+}//end function
 
 /**
  * Takes recipe object and the id of the category, and appends the recipe object's contents to the category.
@@ -185,6 +227,7 @@ function fillCategory(jqueryCategorySelector, recipe) {
     var category = $(jqueryCategorySelector);
 
     category.append(recipe['html_link'] + "<br>");
+
     category.append("<p class='link_details'>Total Time: "
         + getFormattedTotalTime(calcTotalTime(recipe['prep_time'], recipe['cook_time'])) + "</p>");
 
@@ -258,7 +301,7 @@ function d20rollFunction(){
             " You start to feel a bit nauseous. Suddenly, you fall to the floor. Shouldn't have trusted Jason the barkeep.<br><br>";
 
         //Lose gif
-        $("#bottom_text").append("<img  id='lose_link' src='./website_images/crit_miss_2.gif' style='object-fit: contain;width: 80%;-webkit-user-drag: none;'>");
+        $("#bottom_text").append("<img  id='lose_link' src='./website_images/crit_miss.gif' style='object-fit: contain;width: 80%;-webkit-user-drag: none;'>");
 
     }//end if
 
@@ -272,7 +315,7 @@ function d20rollFunction(){
             "photo. You sense it may comfort you in your time of need.<br><br>";
 
         //Win gif
-        $("#bottom_text").append("<img  id='win_link' src='./website_images/crit_hit_1.gif' style='object-fit: contain;width: 80%;-webkit-user-drag: none;'>");
+        $("#bottom_text").append("<img  id='win_link' src='./website_images/crit_hit.gif' style='object-fit: contain;width: 80%;-webkit-user-drag: none;'>");
 
     }//end if
 
