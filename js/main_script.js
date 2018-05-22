@@ -53,12 +53,14 @@
      * Regex method that takes the current URL, and returns whatever is appended after
      * "?query=". Search results from the previous page can be accessed this way.
      *
-     * @param name - keyword to filter for - should be "query"
-     * @param url - full URL of the current page
-     * @returns {returns the items searched for from the URL}
+     * @param name - keyword to filter for - (optional - defaults to "query")
+     * @param url - full URL of the current page (optional - defaults to current window URL)
+     * @returns {returns the items searched for from the URL after "?query="}
      */
-    function getURLsearchValue(name, url) {
+    function getURLqueryValue(name, url) {
         if (!url) url = window.location.href;
+        if(!name) name = "query";
+
         name = name.replace(/[\[\]]/g, "\\$&");
         var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
             results = regex.exec(url);
