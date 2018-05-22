@@ -1,3 +1,8 @@
+
+
+/*	WINDOW ONLOAD FUNCTIONALITY	*/
+
+
 /**
  * Runs when the page is loaded.
  *
@@ -7,14 +12,15 @@
  * So, don't combine common code in window.onload between pages into one script file and hope it'll all get called.
  */
 window.onload=function(){
-
     connecttoPHPfile_GetRecipe();	//must be called from onload, otherwise null error occurs
     triggerSearchOnEnter(); //must be called in window.onload to avoid null
-
-    //console.log(document.styleSheets[4]);   //widget stylesheet
-
-
 }//end window.onload
+
+
+
+
+
+/*  SERVER CONNECTION FUNCTIONS    */
 
 
 
@@ -28,7 +34,7 @@ window.onload=function(){
  */
 function connecttoPHPfile_GetRecipe(){
     $.ajax({
-        url: "get_recipe.php?query=" + getURLsearchValue("query"),
+        url: "get_recipe.php?query=" + getURLqueryValue(),
         dataType: "html",
         type: "GET",
         data: {output: 'html'},
@@ -89,13 +95,18 @@ function usePhpVarToFillRecipePage(recipeObject){
 
 }//end
 
+
+
+/*   WIDGET METHODS   */
+
+
 /**
  * Load the star ratings to the recipe page.
  */
 function loadStarRatingWidget(){
     $("#widget").append("<div class='wpac-rating' data-wpac-chan='test'></div>");
 
-    var string = getURLsearchValue("query");
+    var string = getURLqueryValue();
     $(".wpac-rating").attr('data-wpac-chan', string);
 
 
@@ -109,5 +120,6 @@ function loadStarRatingWidget(){
         mc.async = true;
         mc.src = 'https://embed.widgetpack.com/widget.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+
     })();
 }//end function
