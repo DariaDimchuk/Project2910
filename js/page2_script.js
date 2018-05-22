@@ -1,3 +1,5 @@
+
+
 /*	WINDOW ONLOAD FUNCTIONALITY	*/
 
 
@@ -78,6 +80,7 @@ $(document).ready(function(){
 
 /*  SERVER CONNECTION FUNCTIONS    */
 
+
 /**
  * Method used to show the link results to recipes on page 2 after a search.
  *
@@ -88,11 +91,11 @@ $(document).ready(function(){
  */
 function connecttoPHPfile_ShowSearchResults_URLquery(phplink){
 
-    if(stopInvalidatedQuery(getURLsearchValue("query"))){
+    if(stopInvalidatedQuery(getURLqueryValue()  )){
         //do something
     }else{
         $.ajax({
-            url: phplink + "?query=" + getURLsearchValue("query"),
+            url: phplink + "?query=" + getURLqueryValue(),
             dataType: "html",
             type: "GET",
             data: {output: 'html'},
@@ -100,7 +103,7 @@ function connecttoPHPfile_ShowSearchResults_URLquery(phplink){
                 console.log(data);
 
                 $('.content').show();
-                document.getElementById("search-result-show").textContent= "Search: " + toTitleCase(getURLsearchValue("query"));
+                document.getElementById("search-result-show").textContent= "Search: " + toTitleCase(getURLqueryValue());
 
                 //displays results on page - do not remove
                 $(".content").append(data);
@@ -119,16 +122,10 @@ function connecttoPHPfile_ShowSearchResults_URLquery(phplink){
 
 
 /**
+ * CALLED FROM PHP FILE 'recipe_object.php'
+ *
  * On a search, this method triggers server side and displays the returned array
- * of results (as $recipe objects) in the appropriate categories.
- *
- *
- * Method used in PHP file and called from PHP file 'recipe_object.php'
- *
- * Takes a php array of  $recipe objects and the array's size, and loops through it to separate the
- * recipe links by their category and place them under the correct div in the html.
- *
- * Separated by 'food', 'beauty', 'household', 'tip' categories.
+ * of results (as $recipe objects) in the appropriate categories by looping through array
  *
  * @param arraysize - size of the array, use 'sizeof($arraynamehere)' in PHP server-end
  * @param recipeArray - array of $recipe objects.
@@ -136,7 +133,7 @@ function connecttoPHPfile_ShowSearchResults_URLquery(phplink){
 function usePhpVarToFillResultContent(arraysize, recipeArray){
 
     if(arraysize === 0 || recipeArray === null || recipeArray === ""){
-        document.getElementById("search-result-show").textContent= toTitleCase(getURLsearchValue("query"))
+        document.getElementById("search-result-show").textContent= toTitleCase(getURLqueryValue())
             + " not found. Try something else!";
 
         $('.content').hide();
@@ -179,6 +176,11 @@ function usePhpVarToFillResultContent(arraysize, recipeArray){
 
 }//end
 
+
+
+/*   CONTENT METHODS   */
+
+
 /**
  * Makes an array have no duplicate recipe values.
  * Does NOT check by ID - checks by name + directions + ingredients list.
@@ -217,6 +219,8 @@ function uniqueArray(array) {
 
 }//end function
 
+
+
 /**
  * Takes recipe object and the id of the category, and appends the recipe object's contents to the category.
  *
@@ -244,8 +248,11 @@ function fillCategory(jqueryCategorySelector, recipe) {
  */
 function stopInvalidatedQuery(query){
 
+    //strip all whitespace from string
+    query = query.replace(/\s/g, '');
+
     //if query is empty, show nothing
-    if(query === "" || query === " "){
+    if(query === ""){
         hideAllContent();
         document.getElementById("search-result-show").textContent= "Nothing found. Try something else!";
         return true;
@@ -282,9 +289,8 @@ function showEasterEgg(){
  * 20 and 1 show special results, numbers between 2-19 show recipes with those IDs.
  */
 function d20rollFunction(){
+    //make random roll between 1 and 20
     var roll = Math.floor(Math.random() * 20) + 1;
-
-    //roll = 1;     //testing purposes
 
     //bigger size for roll number display
     document.getElementById("d20_button_text").style = "font-size: 5vw;";
@@ -319,6 +325,8 @@ function d20rollFunction(){
 
     }//end if
 
+
+
     //Any other roll logic
     if(roll > 1 && roll < 20){
         document.getElementById("d20_button_text").innerHTML = roll;
@@ -327,9 +335,10 @@ function d20rollFunction(){
             "The barkeep reaches behind the counter and brings you something. <br><br>"
             + "<a href=# id='d20_link'>Dig in!</a>";
 
-        //dynamically sets the href of the link
+        //dynamically sets the href of the link to the recipe id of the roll
         document.getElementById("d20_link").href = "./page_3.html?query=" + roll;
     }//end if
+
 
 }//end method
 
