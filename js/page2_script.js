@@ -91,8 +91,7 @@ $(document).ready(function(){
 function connecttoPHPfile_ShowSearchResults_URLquery(phplink){
 
     if(stopInvalidatedQuery(getURLqueryValue())){
-        hideAllContent();
-        document.getElementById("search-result-show").textContent= "Nothing found. Try something else!";
+        //do nothing, hidden content already hidden
     }else{
         $.ajax({
             url: phplink + "?query=" + getURLqueryValue(),
@@ -249,29 +248,21 @@ function fillCategory(jqueryCategorySelector, recipe) {
  */
 function stopInvalidatedQuery(query){
 
-    if(query !== null && query !== ""){
+    query = query.replace(/\s/g, "");   //remove whitespace
 
-        query = query.replace(/\s/g, "");   //remove whitespace
-
-        //if query is empty, show nothing
-        if(query === ""){
-            hideAllContent();
-            document.getElementById("search-result-show").textContent= "Nothing found. Try something else!";
-            return true;
-        }
-
-        //if query looks for Easter egg, show it!
-        if(toLowerCase(query) === "d20"){
-            hideAllContent();
-            showEasterEgg();
-            return true;
-        }
-    }else{
+    //if query is empty, show nothing
+    if(query === ""){
         hideAllContent();
         document.getElementById("search-result-show").textContent= "Nothing found. Try something else!";
         return true;
     }
 
+    //if query looks for Easter egg, show it!
+    if(toLowerCase(query) === "d20"){
+        hideAllContent();
+        showEasterEgg();
+        return true;
+    }
 
     return false;
 }//end
