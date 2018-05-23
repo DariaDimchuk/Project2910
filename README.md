@@ -1,9 +1,14 @@
-# Project2910
-Project for Term 1 2910 class - HTML files
+ # Project2910 - SuperRipe
+Project for Term 1 2910 Projects class
+
+SuperRipe - superripe.ca 
+
+Website provides simple qucik recipes (all 20 minutes or less) for busy students and working professionals to reduce their food waste and use up any foods that are close to being overripe. Search for a fruit or veggie that is going bad, and see hundreds of recipes to use that item up. Not only food recipes, but beauty product recipes, household recipes, and tips are all included.
+
+Index provides info on developers and website. 
+Page 2 handles searches. 
+Page 3 dynamically shows recipes.
 
 
-Page 1 is a simple introduction to our project. 
 
-Page 2 is the page that displays search results. Still requires fuinctionality to ACTUALLY search - so far the content is hard-coded.
-
-Page 3 is the page that shows one of the search results content. A recipe page.
+Contact at superripe.info@gmail.com
