@@ -12,11 +12,10 @@
  * So, don't combine common code in window.onload between pages into one script file and hope it'll all get called.
  */
 window.onload=function(){
-
     connecttoPHPfile_ShowSearchResults_URLquery("recipe_object.php");
     triggerSearchOnEnter(); //must be called in window.onload to avoid null
 
-}//end window.onload
+};
 
 
 
@@ -30,7 +29,7 @@ window.onload=function(){
  */
 $(document).ready(function(){
     $("#food-button").click(function(){
-        $("#food-recipes").toggle('450', "swing", function(){
+        $("#food-recipes").toggle("450", "swing", function(){
             //Animation done.
         });
     });
@@ -43,7 +42,7 @@ $(document).ready(function(){
  */
 $(document).ready(function(){
     $("#household-button").click(function(){
-        $("#household-recipes").toggle('450', "swing", function(){
+        $("#household-recipes").toggle("450", "swing", function(){
             //Animation done.
         });
     });
@@ -56,7 +55,7 @@ $(document).ready(function(){
  */
 $(document).ready(function(){
     $("#health-button").click(function(){
-        $("#health-recipes").toggle('450', "swing", function(){
+        $("#health-recipes").toggle("450", "swing", function(){
             //Animation done.
         });
     });
@@ -69,7 +68,7 @@ $(document).ready(function(){
  */
 $(document).ready(function(){
     $("#tips-button").click(function(){
-        $("#tips-recipes").toggle('450', "swing", function(){
+        $("#tips-recipes").toggle("450", "swing", function(){
             //Animation done.
         });
     });
@@ -91,18 +90,19 @@ $(document).ready(function(){
  */
 function connecttoPHPfile_ShowSearchResults_URLquery(phplink){
 
-    if(stopInvalidatedQuery(getURLqueryValue()  )){
-        //do something
+    if(stopInvalidatedQuery(getURLqueryValue())){
+        hideAllContent();
+        document.getElementById("search-result-show").textContent= "Nothing found. Try something else!";
     }else{
         $.ajax({
             url: phplink + "?query=" + getURLqueryValue(),
             dataType: "html",
             type: "GET",
-            data: {output: 'html'},
+            data: {output: "html"},
             success: function(data) {
                 console.log(data);
 
-                $('.content').show();
+                $(".content").show();
                 document.getElementById("search-result-show").textContent= "Search: " + toTitleCase(getURLqueryValue());
 
                 //displays results on page - do not remove
@@ -111,7 +111,7 @@ function connecttoPHPfile_ShowSearchResults_URLquery(phplink){
             error: function(jqXHR, textStatus, errorThrown) {
 
                 document.getElementById("search-result-show").textContent= "Nothing found. Try something else!";
-                $('.content').hide();
+                $(".content").hide();
             }
         });
     }
@@ -133,14 +133,13 @@ function connecttoPHPfile_ShowSearchResults_URLquery(phplink){
 function usePhpVarToFillResultContent(arraysize, recipeArray){
 
     if(arraysize === 0 || recipeArray === null || recipeArray === ""){
-        document.getElementById("search-result-show").textContent= toTitleCase(getURLqueryValue())
-            + " not found. Try something else!";
+        document.getElementById("search-result-show").textContent= toTitleCase(getURLqueryValue()) + " not found. Try something else!";
 
-        $('.content').hide();
+        $(".content").hide();
 
     }else{
 
-        $('.content').show();
+        $(".content").show();
 
         //get rid of duplicates
         var uniqueArr = uniqueArray(recipeArray);
@@ -149,24 +148,27 @@ function usePhpVarToFillResultContent(arraysize, recipeArray){
 
             var recipe = uniqueArr[i];
             if(recipe !== null){
-                if(recipe['category'] === 'food'){
-                    $('.food').show();
-                    fillCategory('#food-recipes', recipe);
+
+                var category = recipe["category"];
+
+                if(category === "food"){
+                    $(".food").show();
+                    fillCategory("#food-recipes", recipe);
                 }
 
-                if(recipe['category'] === 'beauty'){
-                    $('.health').show();
-                    fillCategory('#health-recipes', recipe);
+                if(category === "beauty"){
+                    $(".health").show();
+                    fillCategory("#health-recipes", recipe);
                 }
 
-                if(recipe['category'] === 'household'){
-                    $('.household').show();
-                    fillCategory('#household-recipes', recipe);
+                if(category === "household"){
+                    $(".household").show();
+                    fillCategory("#household-recipes", recipe);
                 }
 
-                if(recipe['category'] === 'tip'){
-                    $('.tips').show();
-                    fillCategory('#tips-recipes', recipe);
+                if(category === "tip"){
+                    $(".tips").show();
+                    fillCategory("#tips-recipes", recipe);
                 }
             }//end null check
 
@@ -201,10 +203,11 @@ function uniqueArray(array) {
         //if a copy exists in new array, not unique, so don't add.
         //DO NOT check by ID - duplicates will have different IDs
         for(x = 0; x < uniqueArray.length; x++){
-            if(     (currentRecipe['directions'] === uniqueArray[x]['directions'])
-                && (currentRecipe['ingredients'] === uniqueArray[x]['ingredients'])
-                && (currentRecipe['name'] === uniqueArray[x]['name'])){
 
+            if((currentRecipe["directions"] === uniqueArray[x]["directions"])
+                && (currentRecipe["ingredients"] === uniqueArray[x]["ingredients"])
+                && (currentRecipe["name"] === uniqueArray[x]["name"]))
+            {
                 unique = false;
             }
         }//end loop
@@ -230,12 +233,10 @@ function uniqueArray(array) {
 function fillCategory(jqueryCategorySelector, recipe) {
     var category = $(jqueryCategorySelector);
 
-    category.append(recipe['html_link'] + "<br>");
+    category.append(recipe["html_link"] + "<br>");
 
-    category.append("<p class='link_details'>Total Time: "
-        + getFormattedTotalTime(calcTotalTime(recipe['prep_time'], recipe['cook_time'])) + "</p>");
-
-    category.append("<p class='link_details'>Total Ingredients: " + recipe['num_of_ingredients'] + "</p>");
+    category.append("<p class='link_details'>Total Time: " + getFormattedTotalTime(calcTotalTime(recipe["prep_time"], recipe["cook_time"])) + "</p>");
+    category.append("<p class='link_details'>Total Ingredients: " + recipe["num_of_ingredients"] + "</p>");
     category.append("<br>");
 }//end
 
@@ -248,22 +249,29 @@ function fillCategory(jqueryCategorySelector, recipe) {
  */
 function stopInvalidatedQuery(query){
 
-    //strip all whitespace from string
-    query = query.replace(/\s/g, '');
+    if(query !== null && query !== ""){
 
-    //if query is empty, show nothing
-    if(query === ""){
+        query = query.replace(/\s/g, "");   //remove whitespace
+
+        //if query is empty, show nothing
+        if(query === ""){
+            hideAllContent();
+            document.getElementById("search-result-show").textContent= "Nothing found. Try something else!";
+            return true;
+        }
+
+        //if query looks for Easter egg, show it!
+        if(toLowerCase(query) === "d20"){
+            hideAllContent();
+            showEasterEgg();
+            return true;
+        }
+    }else{
         hideAllContent();
         document.getElementById("search-result-show").textContent= "Nothing found. Try something else!";
         return true;
     }
 
-    //if query looks for Easter egg, show it!
-    if(toLowerCase(query) === "d20"){
-        hideAllContent();
-        showEasterEgg();
-        return true;
-    }
 
     return false;
 }//end
@@ -274,11 +282,11 @@ function stopInvalidatedQuery(query){
  * Shows easter egg contents.
  */
 function showEasterEgg(){
-    $('#search-result-show').append("You arrive at a tavern. The barkeep is a young boy named Jason." +
+    $("#search-result-show").append("You arrive at a tavern. The barkeep is a young boy named Jason." +
         " He offers you a random item from the menu. On the house! Let's see what you get!<br>");
 
-    $('.content').show();
-    $('.content').append("<br><div class='d20'>" + "<button type='button' id='d20_button' onclick='d20rollFunction(); this.onclick=null;'>" +
+    $(".content").show();
+    $(".content").append("<br><div class='d20'>" + "<button type='button' id='d20_button' onclick='d20rollFunction(); this.onclick=null;'>" +
         "<img id='d20_img' src='./website_images/dice.png'><div class='d20' id='d20_button_text'>Roll!</div></button> " + "</div>");
 }//end
 
@@ -296,7 +304,7 @@ function d20rollFunction(){
     document.getElementById("d20_button_text").style = "font-size: 5vw;";
 
     //scroll to bottom to show results
-    $('html, body').animate({scrollTop: $(document).height()}, 'slow');
+    $("html, body").animate({scrollTop: $(document).height()}, "slow");
 
 
     //critical miss logic
@@ -329,11 +337,9 @@ function d20rollFunction(){
 
     //Any other roll logic
     if(roll > 1 && roll < 20){
-        document.getElementById("d20_button_text").innerHTML = roll;
+        document.getElementById("d20_button_text").innerHTML = roll.toString();
 
-        document.getElementById("bottom_text").innerHTML =
-            "The barkeep reaches behind the counter and brings you something. <br><br>"
-            + "<a href=# id='d20_link'>Dig in!</a>";
+        document.getElementById("bottom_text").innerHTML = "The barkeep reaches behind the counter and brings you something. <br><br>" + "<a href=# id='d20_link'>Dig in!</a>";
 
         //dynamically sets the href of the link to the recipe id of the roll
         document.getElementById("d20_link").href = "./page_3.html?query=" + roll;
@@ -422,9 +428,9 @@ function toLowerCase(str)
  * Used to hide the recipe content page, buttons, and sections. Only title, searchbar, and one text field remain.
  */
 function  hideAllContent() {
-    $('.food').hide();
-    $('.health').hide();
-    $('.household').hide();
-    $('.tips').hide();
-    $('.content').hide();
+    $(".food").hide();
+    $(".health").hide();
+    $(".household").hide();
+    $(".tips").hide();
+    $(".content").hide();
 }//end
