@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Whoops!</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/404_style.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+</head>
+<body>
+    <div id="top404">
+        <h1>404</h1>
+
+        <p>This link has gone bad. something soemthing soemthing click the banana</p>
+    </div>
+
+    <div id="bottom404">
+        <a href="index.html"><img src="website_images/logo.png"/></a>
+    </div>
+</body>
+</html>
