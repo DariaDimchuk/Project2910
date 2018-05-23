@@ -5,21 +5,17 @@
     /**
 	 * Runs when the page is loaded.
 	 *
-	 * Important: all common code between scripts and pages must be repeated again in window.onload - otherwise another
-	 * script page will overwrite the needed code.
+	 * Important: all common code between scripts and pages must be repeated again in
+     * each JS file's window.onload - otherwise another script page will overwrite the needed code.
 	 *
-	 * So, don't combine common code in window.onload between pages into one script file and hope it'll all get called.
      */
 	window.onload=function(){
-
 		triggerSearchOnEnter();	//must be called from onload, otherwise null error occurs
-
-	}//end window.onload
+	};
 
 
 
 /*	Search button functionality	*/
-
 
     /**
      * Function triggers the search button when ENTER is hit in the input search bar.
@@ -35,7 +31,6 @@
                 document.getElementById("search-button").click();
             }
         });
-
     }//end
 
 
@@ -65,8 +60,8 @@
         var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
             results = regex.exec(url);
         if (!results) return null;
-        if (!results[2]) return '';
-        return decodeURIComponent(results[2].replace(/\+/g, " "));
+        if (!results[2]) return "";
+        return decodeURIComponent(results[2].replace(/[^A-Za-z0-9]+/g, " "));   //.replace(/\+/g, " ")
     }//end
 
 
@@ -75,8 +70,9 @@
 	 * When search() is triggered, load window to page 2 and append
 	 * "?query=XXX" where XXX is the input being searched.
 	 *
-	 * Search should be triggered on click of the search button, or when ENTER is hit in the input searchbar.
+	 * Search should be triggered on click of the search button,
+     * or when ENTER is hit in the input searchbar.
      */
 	function search(){
-		onclick=window.location.href = './page_2.html?query=' + getSearchValue();
+		onclick=window.location.href = "./page_2.html?query=" + getSearchValue();
 	}//end
