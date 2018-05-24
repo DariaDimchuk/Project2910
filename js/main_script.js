@@ -61,7 +61,8 @@
             results = regex.exec(url);
         if (!results) return null;
         if (!results[2]) return "";
-        return decodeURIComponent(results[2].replace(/[^A-Za-z0-9]+/g, " "));   //.replace(/\+/g, " ")
+        var ans = results[2].replace(/[^A-Za-z0-9]+/g, " ");
+        return decodeURIComponent(ans);   //.replace(/\+/g, " ")
     }//end
 
 
