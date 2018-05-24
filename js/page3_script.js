@@ -12,7 +12,7 @@
  * So, don't combine common code in window.onload between pages into one script file and hope it'll all get called.
  */
 window.onload=function(){
-    connecttoPHPfile_GetRecipe();	//must be called from onload, otherwise null error occurs
+    connecttoPHPfile_GetRecipe("./php/get_recipe_by_id.php");	//must be called from onload, otherwise null error occurs
     triggerSearchOnEnter(); //must be called in window.onload to avoid null
 }//end window.onload
 
@@ -30,11 +30,11 @@ window.onload=function(){
  * Ajax connection to a selected php file. The search query is selected by using the URL search.
  *
  * Method connects to database, runs the selected PHP file, and returns results.
- * @param phplink
+ * @param phplink - name of php file that searches DB for recipe that matches the recipe id (displayed in page URL)
  */
-function connecttoPHPfile_GetRecipe(){
+function connecttoPHPfile_GetRecipe(phplink){
     $.ajax({
-        url: "get_recipe.php?query=" + getURLqueryValue(),
+        url: phplink + "?query=" + getURLqueryValue(),
         dataType: "html",
         type: "GET",
         data: {output: 'html'},
@@ -45,8 +45,8 @@ function connecttoPHPfile_GetRecipe(){
                 $('.content').show();
             });
 
-            //puts on page
-            $(".content").append(data);
+            //displays results on page
+            fillRecipePage(JSON.parse(data));
         },
         error: function(jqXHR, textStatus, errorThrown) {
 
@@ -59,11 +59,11 @@ function connecttoPHPfile_GetRecipe(){
 
 
 /**
- * Uses returned recipe object from the PHP file to fill up recipe html page
+ * Uses JSON decoded recipe object from the PHP file to fill up recipe html page.
  *
  * @param recipeObject - results from the php file searching for a recipe by id
  */
-function usePhpVarToFillRecipePage(recipeObject){
+function fillRecipePage(recipeObject){
 
     if(recipeObject === null || recipeObject === "" || recipeObject === " " ){
         $('#recipe_name').append("Sorry, recipe not found!");
