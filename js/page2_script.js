@@ -12,10 +12,113 @@
  * So, don't combine common code in window.onload between pages into one script file and hope it'll all get called.
  */
 window.onload=function(){
-    connecttoPHPfile_ShowSearchResults_URLquery("recipe_object.php");
+    getQueryResultsFromPHPfile("./php/get_recipe_results.php");
     triggerSearchOnEnter(); //must be called in window.onload to avoid null
 
 };
+
+
+
+
+/*  SERVER CONNECTION FUNCTIONS    */
+
+
+/**
+ * Method used to show the link results to recipes on page 2 after a search.
+ *
+ * Ajax connection to a selected php file. The search query is selected by using the URL search.
+ *
+ * Method connects to database, runs the selected PHP file, and returns results.
+ * @param phplink - name of php file that searches DB for all applicable recipes
+ */
+function getQueryResultsFromPHPfile(phplink){
+
+    if(stopInvalidatedQuery(getURLqueryValue())){
+        //do nothing, hidden content already hidden
+    }else{
+        $.ajax({
+            url: phplink + "?query=" + getURLqueryValue(),
+            dataType: "html",
+            type: "GET",
+            data: {output: "html"},
+            success: function(data) {
+                console.log(data);
+
+                $(".content").show();
+                document.getElementById("search-result-show").textContent= "Search: " + toTitleCase(getURLqueryValue());
+
+                //displays results on page
+                fillSearchResultContent(JSON.parse(data).length, JSON.parse(data));
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+
+                document.getElementById("search-result-show").textContent= "Nothing found. Try something else!";
+                $(".content").hide();
+            }
+        });
+    }
+
+}//end connecttoPHPfile function
+
+
+
+
+/**
+ * On a search, this method triggers server side and displays the returned array
+ * of results (as $recipe objects) in the appropriate categories by looping through array
+ *
+ * @param arraysize - size of the array, use 'sizeof($arraynamehere)' in PHP server-end
+ * @param recipeArray - array of $recipe objects.
+ */
+function fillSearchResultContent(arraysize, recipeArray){
+
+    if(arraysize === 0 || recipeArray === null || recipeArray === ""){
+        document.getElementById("search-result-show").textContent= toTitleCase(getURLqueryValue()) + " not found. Try something else!";
+
+        $(".content").hide();
+
+    }else{
+
+        $(".content").show();
+
+        //get rid of duplicates
+        var uniqueArr = uniqueArray(recipeArray);
+
+        for (i=0; i<uniqueArr.length; i++) {
+
+            var recipe = uniqueArr[i];
+            if(recipe !== null){
+
+                var category = recipe["category"];
+
+                if(category === "food"){
+                    $(".food").show();
+                    fillCategory("#food-recipes", recipe);
+                }
+
+                if(category === "beauty"){
+                    $(".health").show();
+                    fillCategory("#health-recipes", recipe);
+                }
+
+                if(category === "household"){
+                    $(".household").show();
+                    fillCategory("#household-recipes", recipe);
+                }
+
+                if(category === "tip"){
+                    $(".tips").show();
+                    fillCategory("#tips-recipes", recipe);
+                }
+            }//end null check
+
+        }//end loop
+
+    }//end else
+
+}//end
+
+
 
 
 
@@ -77,105 +180,6 @@ $(document).ready(function(){
 
 
 
-/*  SERVER CONNECTION FUNCTIONS    */
-
-
-/**
- * Method used to show the link results to recipes on page 2 after a search.
- *
- * Ajax connection to a selected php file. The search query is selected by using the URL search.
- *
- * Method connects to database, runs the selected PHP file, and returns results.
- * @param phplink
- */
-function connecttoPHPfile_ShowSearchResults_URLquery(phplink){
-
-    if(stopInvalidatedQuery(getURLqueryValue())){
-        //do nothing, hidden content already hidden
-    }else{
-        $.ajax({
-            url: phplink + "?query=" + getURLqueryValue(),
-            dataType: "html",
-            type: "GET",
-            data: {output: "html"},
-            success: function(data) {
-                console.log(data);
-
-                $(".content").show();
-                document.getElementById("search-result-show").textContent= "Search: " + toTitleCase(getURLqueryValue());
-
-                //displays results on page - do not remove
-                $(".content").append(data);
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-
-                document.getElementById("search-result-show").textContent= "Nothing found. Try something else!";
-                $(".content").hide();
-            }
-        });
-    }
-
-}//end connecttoPHPfile function
-
-
-
-
-/**
- * CALLED FROM PHP FILE 'recipe_object.php'
- *
- * On a search, this method triggers server side and displays the returned array
- * of results (as $recipe objects) in the appropriate categories by looping through array
- *
- * @param arraysize - size of the array, use 'sizeof($arraynamehere)' in PHP server-end
- * @param recipeArray - array of $recipe objects.
- */
-function usePhpVarToFillResultContent(arraysize, recipeArray){
-
-    if(arraysize === 0 || recipeArray === null || recipeArray === ""){
-        document.getElementById("search-result-show").textContent= toTitleCase(getURLqueryValue()) + " not found. Try something else!";
-
-        $(".content").hide();
-
-    }else{
-
-        $(".content").show();
-
-        //get rid of duplicates
-        var uniqueArr = uniqueArray(recipeArray);
-
-        for (i=0; i<uniqueArr.length; i++) {
-
-            var recipe = uniqueArr[i];
-            if(recipe !== null){
-
-                var category = recipe["category"];
-
-                if(category === "food"){
-                    $(".food").show();
-                    fillCategory("#food-recipes", recipe);
-                }
-
-                if(category === "beauty"){
-                    $(".health").show();
-                    fillCategory("#health-recipes", recipe);
-                }
-
-                if(category === "household"){
-                    $(".household").show();
-                    fillCategory("#household-recipes", recipe);
-                }
-
-                if(category === "tip"){
-                    $(".tips").show();
-                    fillCategory("#tips-recipes", recipe);
-                }
-            }//end null check
-
-        }//end loop
-
-    }//end else
-
-}//end
 
 
 
