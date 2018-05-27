@@ -1,125 +1,131 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 
-<head>
-	<title>SuperRipe</title>
-	<meta charset = "utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<head>
+		<title>SuperRipe</title>
+		<meta charset = "utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<!--[if lt IE 9]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+		<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
 
-	<link rel="icon" href="./website_images/favicon.png?v=2">
-	<link rel="stylesheet" type="text/css" href="./css/main_style.css">	
-	<link rel="stylesheet" type="text/css" href="./css/page1_style.css">
-	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+		<link rel="icon" href="./website_images/favicon.png?v=2">
+
+		<link rel="stylesheet" type="text/css" href="./css/main_style.css">
+		<link rel="stylesheet" type="text/css" href="./css/page1_style.css">
+		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="./js/main_script.js"></script>
+
+	</head>
 	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="./js/main_script.js"></script>
 	
-</head>
-	
-	
-<body>
+	<body>
 
-	<div class="top-bar">
-		<nav id="menu">
-			<div id="test" style="height: 2vw;"></div>
-			<a href="index.html#about">about</a>
-			<a href="index.html#why">why</a>
-			<a href="index.html#how">how</a>
-		</nav>
-	</div>
-
-
-	<div class="wrapper">
-		<div id="banner_image"></div>
-		
-		<div class = "content">
-			<h1 id="title">SuperRipe</h1>
-			
-			<div id="search-section">
-				<input type="text" id="searchbar" placeholder="Search food ...">
-				
-				<button onclick="search()" type="button" id="search-button">
-				
-					<img src="./website_images/search-icon.png" class="search-button-image">
-				
-				</button>
-				
-			</div>
+		<div class="top-bar">
+			<nav id="menu">
+				<div id="test" style="height: 2vw;"></div>
+				<a href="index.html#how">how</a>
+				<a href="index.html#why">why</a>
+				<a href="index.html#about">about</a>
+			</nav>
 		</div>
-		
-		<div class="content">
-				
-			<h2 id="about">About Us</h2>
-			<div class="text">
-				<br><br>
-				
-				<p>We're a team of beginner developers looking to create software that improves the world. <br><br><br> We've created a mobile website that shows you how to keep your produce fresh longer, keep your food waste low, and reuse your not-so-fresh produce!</p>
-				<br><br>
+
+
+		<div class="wrapper">
+			<div id="banner_image"></div>
+
+			<div class = "content">
+				<h1 id="title">SuperRipe</h1>
+
+				<div id="search-section">
+					<input type="text" id="searchbar" placeholder="Search food ...">
+
+					<button onclick="search()" type="button" id="search-button">
+
+						<img src="./website_images/search-icon.png" alt="search-icon" class="search-button-image">
+
+					</button>
+
+				</div>
 			</div>
-				
-		</div>
-		
-		
-		<div class="image-banner">
-				<img src="./website_images/food1.jpg">
-			</div>
-		
-		
-		<div class="content">
-		
-			<h2 id="why">Why did we make this?</h2>
-				
-			<div class="text">
-				
-				<br><br>
-				
-				<p>Food waste has become a huge problem in every household. Although composting your food scraps is helpful, it's still just above a landfill!</p>
-				
-				<p><br><br> There are many ways you can improve your habits to reduce food waste, reuse older vegetables and fruits, and keep your produce fresh longer.</p>
-				<p><br>Look up recipes to use up older fruits or ways to make health products out of them. Search through tips on how to reduce your footprint, keep those veggies last longer, and buy just enough for your family - so nothing gets thrown out.
-				</p>
-				
-				<p><br>Give us a try! Search for a food item you have that's a little over ripe, and see all you can do with it.</p>
-				
-			</div>
-		</div>
-		
-		
-		<div class="image-banner">
-				<img src="./website_images/smoothie-1440p.jpg">
-			</div>
-		
-		
-		<div class="content">
-				
+
+
+			<div class="content">
+
 				<h2 id="how">How do you use this?</h2>
-				
-			<div class="text">
-			
-				<br><br>
-				
-				<p>We streamlined our website to make it as easy as possible to reduce food waste.</p>
-				
-				<p>Simply type in what type of food you have that is going bad and search. We provide hundreds of recipes, tips, and ideas for using up this food instead of throwing it in the bin.
-					<br><br>Unlike other websites, we give you everything - from food recipes, to health product recipes, to tips and facts. Feel free to filter your search results to see only what you want to see. </p>
-				
+
+				<div class="text">
+
+					<br><br>
+
+					<p>We streamlined our website to make it as easy as possible to reduce food waste.</p>
+
+					<p>Simply type in what type of food you have that is going bad and search. We provide hundreds of recipes, tips, and ideas for using up this food instead of throwing it in the bin.
+						<br><br>Unlike other websites, we give you everything - from food recipes, to health product recipes, to tips and facts. Feel free to filter your search results to see only what you want to see. </p>
+
+				</div>
+
 			</div>
-				
+
+
+
+			<div class="image-banner">
+					<img src="./website_images/food1.jpg" alt="food-banner-image">
+				</div>
+
+
+			<div class="content">
+
+				<h2 id="why">Why did we make this?</h2>
+
+				<div class="text">
+
+					<br><br>
+
+					<p>Food waste has become a huge problem in every household. Although composting your food scraps is helpful, it's still just above a landfill!</p>
+
+					<p><br><br> There are many ways you can improve your habits to reduce food waste, reuse older vegetables and fruits, and keep your produce fresh longer.</p>
+					<p><br>Look up recipes to use up older fruits or ways to make health products out of them. Search through tips on how to reduce your footprint, keep those veggies lasting longer, and buy just enough for your family - so nothing gets thrown out.
+					</p>
+
+					<p><br>Give us a try! Search for a food item you have that's a little over ripe, and see all you can do with it.</p>
+
+				</div>
+			</div>
+
+
+			<div class="image-banner">
+					<img src="./website_images/smoothie-1440p.jpg" alt="food-banner-image">
+				</div>
+
+			<div class="content">
+
+				<h2 id="about">About Us</h2>
+				<div class="text">
+					<br><br>
+
+					<p>We're a team of beginner developers looking to create software that improves the world. <br><br><br> We've created a mobile website that shows you how to keep your produce fresh longer, keep your food waste low, and reuse your not-so-fresh produce!</p>
+					<br><br>
+
+
+					<p>Contact us about our app at <a id="contact_email" target="_top" href="mailto:superripe_info@gmail.com?subject=SuperRipe%20Comments">superripe_info@gmail.com</a></p>
+				</div>
+
+			</div>
+
+
 		</div>
 
-	</div>
-	
-	<footer>
-		
-	</footer>
+		<footer>
 
-	
-</body>
+		</footer>
+
+
+	</body>
 </html>
 
