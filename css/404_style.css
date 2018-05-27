@@ -1,9 +1,11 @@
 body {
     margin: 0;
 }
+
 #top404 {
     background-color: #E91E63;
 }
+
 h1 {
     font-family: 'Poiret One', cursive;
     color: #AC003A;
@@ -11,6 +13,7 @@ h1 {
     margin: 0;
     padding-top: 9vh;
 }
+
 p {
     font-family: 'Quicksand', Arial, sans-serif;
     color: white;
@@ -18,9 +21,12 @@ p {
     margin-left: 8vw;
     margin-right: 8vw;
 }
+
 #bottom404 {
     background-color: #FCC31C;
 }
+
+
 @media only screen and (orientation: portrait) {
     #top404 {
         height: 61.8vh;
@@ -40,26 +46,34 @@ p {
         margin-left: calc(50% - (38.2vh / 1.618 / 2));
     }
 }
+
+
 @media only screen and (orientation: landscape) {
+    
     #top404 {
         width: 61.8vw;
         height: 100vh;
         float: left;
     }
+    
     h1 {
         font-size: 24vw;
     }
+    
     p {
         font-size: 3vw;
     }
+    
     #bottom404 {
         width: 38.2vw;
         height: 100vh;
         float: left;
     }
+    
     img {
         width: calc(38.2vw / 1.618);
         margin-top: 28vh;
         margin-left: calc(50% - (38.2vw / 1.618 /2));
     }
+    
 }

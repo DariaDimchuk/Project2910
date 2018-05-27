@@ -23,7 +23,6 @@ hr{
 	background-repeat: no-repeat;
 	background-size: cover;
 	padding: 14%;
-	--max-height: 20%;
 	height: 12vw;
 	opacity: 0.8;
 }
@@ -37,7 +36,6 @@ hr{
 }
 
 .wrapper{
-    --background-color: #f9f9f9;
 	background-color: white;
 }
 
@@ -98,7 +96,6 @@ input:focus{
 	padding: 1.6vw;
 	border: 1px solid #0000003b;
     margin: 5% 0;
-    --background: #fcfcfb;
 	background-color: white;
 }
 
@@ -110,13 +107,14 @@ input:focus{
 #search-button{
 	background: transparent;
 	border: none;
-	width: 30px;
+	width: 45px;
 	margin: 0 0 -2px -3px;
+	padding: 8px 5px;
 	
 }
 
 #search-button img{
-	max-width: 5vw;
+	max-width: 5.3vw;
 	margin: 0 0 -2px -3px;
 	-webkit-user-drag: none;
 }
@@ -125,3 +123,6 @@ input:focus{
 	text-decoration: none;
 }
 
+#contact_email{
+	text-decoration: none;
+}

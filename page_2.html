@@ -1,116 +1,116 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 
-<head>
-	<title>SuperRipe</title>
-	<meta charset = "utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-	<!--[if lt IE 9]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+	<head>
+		<title>SuperRipe</title>
+		<meta charset = "utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="icon" href="./website_images/favicon.png?v=2">
-	<link rel="stylesheet" type="text/css" href="./css/main_style.css">	
-	<link rel="stylesheet" type="text/css" href="./css/page2_style.css">
-	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
-	
-	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="./js/main_script.js"></script>
-	<script src="./js/page2_script.js"></script>
-	
-	
-</head>
-	
-	
-<body>
-	<div class="top-bar">
-		<nav id="menu">
-			<div id="test" style="height: 2vw;"></div>
-			<a href="index.html#about">about</a>
-			<a href="index.html#why">why</a>
-			<a href="index.html#how">how</a>
-		</nav>
-	</div>
-	
-	<div id="banner_image"></div>
-	<div class="wrapper">
-		
-		<div>
-			<h1 id="title"><a href="index.html">SuperRipe</a></h1>
+		<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
 
-			
-			
-			<div id="search-section">
-				<input type="text" id="searchbar" placeholder="Search food ...">
-				
-				<button onclick="search()" type="button" id="search-button">
-				
-					<img src="./website_images/search-icon.png" class="search-button-image">
-				
-				</button>
-			
+		<link rel="icon" href="./website_images/favicon.png?v=2">
+		<link rel="stylesheet" type="text/css" href="./css/main_style.css">
+		<link rel="stylesheet" type="text/css" href="./css/page2_style.css">
+		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="./js/main_script.js"></script>
+		<script src="./js/page2_script.js"></script>
+
+
+	</head>
+
+
+	<body>
+		<div class="top-bar">
+			<nav id="menu">
+				<div id="test" style="height: 2vw;"></div>
+				<a href="index.html#how">how</a>
+				<a href="index.html#why">why</a>
+				<a href="index.html#about">about</a>
+			</nav>
+		</div>
+
+		<div id="banner_image"></div>
+		<div class="wrapper">
+
+			<div>
+				<h1 id="title"><a href="index.html">SuperRipe</a></h1>
+
+
+
+				<div id="search-section">
+					<input type="text" id="searchbar" placeholder="Search food ...">
+
+					<button onclick="search()" type="button" id="search-button">
+
+						<img src="./website_images/search-icon.png" alt="search-icon" class="search-button-image">
+
+					</button>
+
+				</div>
+
 			</div>
-			
-		</div>
-		
-		
-		<div id="search-result-show">
-		</div>
-		
-		<div class="content" style="display: none">
-			<div class="food" style="display: none;">
-				<button type="button" id="food-button">
-					Food Recipes
-					
-					<img src="./website_images/expand.png" class="expand-image" align= "right">
-				</button>
-				<div class="recipes" id="food-recipes">
-						
+
+
+			<div id="search-result-show">
+			</div>
+
+			<div class="content" style="display: none">
+				<div class="food" style="display: none;">
+					<button type="button" id="food-button">
+						Food Recipes
+
+						<img src="./website_images/expand.png" alt="expand-button-img" class="expand-image">
+					</button>
+					<div class="recipes" id="food-recipes">
+
+					</div>
+				</div>
+
+
+				<div class="health" style="display: none;">
+					<button type="button" id="health-button">
+						Skincare Recipes
+						<img src="./website_images/expand.png" alt="expand-button-img" class="expand-image">
+					</button>
+
+					<div class="recipes" id="health-recipes">
+
+					</div>
+				</div>
+
+
+				<div class="household" style="display: none;">
+					<button type="button" id="household-button">
+						Household Recipes
+						<img src="./website_images/expand.png" alt="expand-button-img" class="expand-image">
+					</button>
+
+					<div class="recipes" id="household-recipes">
+
+					</div>
+				</div>
+
+				<div class="tips" style="display: none;">
+					<button type="button" id="tips-button">
+						Tips
+						<img src="./website_images/expand.png" alt="expand-button-img" class="expand-image">
+					</button>
+
+					<div class="recipes" id="tips-recipes"></div>
 				</div>
 			</div>
 
-
-			<div class="health" style="display: none;">
-				<button type="button" id="health-button">
-					Skincare Recipes
-					<img src="./website_images/expand.png" class="expand-image" align= "right">
-				</button>
-				
-				<div class="recipes" id="health-recipes">
-
-				</div>
-			</div>
-
-
-			<div class="household" style="display: none;">
-				<button type="button" id="household-button">
-					Household Recipes
-					<img src="./website_images/expand.png" class="expand-image" align= "right">
-				</button>
-
-				<div class="recipes" id="household-recipes">
-
-				</div>
-			</div>
-		
-			<div class="tips" style="display: none;">
-				<button type="button" id="tips-button">
-					Tips
-					<img src="./website_images/expand.png" class="expand-image" align= "right";>
-				</button>
-				
-				<div class="recipes" id="tips-recipes"></div>
-			</div>
+			<div id="bottom_text"></div>
 		</div>
 
-		<div id="bottom_text"></div>
-	</div>
-	
-	<footer></footer>
-</body>
+		<footer></footer>
+	</body>
 </html>
 
