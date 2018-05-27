@@ -8,7 +8,6 @@
 	.title{
 		max-height: 250px;
 	}
-	
 }
 
 
@@ -29,7 +28,6 @@ html, body, .wrapper{
 
 
 .content{
-	--background-color: #f9f9f9;
 	background-color: white;
 	position: relative;
 	padding-bottom: 5px;	
